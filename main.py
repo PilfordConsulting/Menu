@@ -17,8 +17,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 # import socket
 
-# emailAddresses = ["david.p.greenaway@gmail.com", "nauntonpark@hotmail.com"]
-emailAddresses = ["david.p.greenaway@gmail.com"]
+emailAddresses = ["david.p.greenaway@gmail.com", "nauntonpark@hotmail.com"]
+# emailAddresses  = ["david.p.greenaway@gmail.com"]
 
 
 def sendMail(msgtext, toaddr, subject='shopping list'):
@@ -77,7 +77,6 @@ class Example(wx.Frame):
     Ingredience = []
     Recipies = []
 
-    # and dictionaries to aid lookup in lists
     MenuDict = {}
     IngredienceDict = {}
     RecipiesDict = {}
@@ -89,20 +88,20 @@ class Example(wx.Frame):
 
         fileStem = "None"
         if platform.system() == "Linux":
-            fileStem = "/home/david/PycharmProjects/FoodDB/"
+            fileStem = "/home/david/Menu/"
         if platform.system() == "Windows":
-            fileStem = "C:\\Users\\david\\PycharmProjects\\FoodDB\\"
+            fileStem = "C:\\Users\\david\\Documents\\source\\food\\"
 
         if fileStem == "None":
             raise Exception("something wrong  file filename")
+
+        self.allCatsList = []
 
         self.MenuFileName: str = fileStem+"Menu"
         self.IngredianceFileName = fileStem+"Ingrediance"
         self.RecipiesFileName = fileStem+"Recipies"
         self.TempFileName = fileStem+"temp"
         self.CatFileName = fileStem+"cat"
-
-        self.allCatsList = []   # just a list of ascii art cats, every program needs a list of ascii art cats!
 
         self.panel = wx.Panel(self, size=(600, 400))
         self.vbox = wx.BoxSizer(wx.VERTICAL)
@@ -226,7 +225,6 @@ class Example(wx.Frame):
         readIn(self.Ingredience, self.IngredienceDict, self.IngredianceFileName)
 
     def nextIngredentCallback(self, event):
-        print(self.Ingredience)
         self.IngrediencePointer = min(self.IngrediencePointer + 1, len(self.Ingredience) - 1)
 
         if self.IngrediencePointer == len(self.Ingredience) - 1:
@@ -235,7 +233,6 @@ class Example(wx.Frame):
             self.previousIngredent.Show()
 
         self.ingredientBox.Clear()
-        print(self.IngrediencePointer)
         self.ingredientBox.AppendText(self.Ingredience[self.IngrediencePointer].rstrip())
 
     def previousIngredentCallback(self, event):
@@ -252,28 +249,23 @@ class Example(wx.Frame):
     def DecreaseStockCallback(self, event):
         info = self.ingredientBox.GetValue().split()
         number = max(int(info[1]) - 1, 0)
-        minStock = int(info[2])
-
-        text = info[0] + " " + str(number) + " " + str(minStock)
+        text = info[0] + " " + str(number)
         self.ingredientBox.Clear()
         self.ingredientBox.AppendText(text)
-        self.Ingredience[self.IngrediencePointer] = info[0] + " " + str(number) + " " + str(minStock)
+        self.Ingredience[self.IngrediencePointer] = info[0] + " " + str(number)
 
     def IncreaseStockCallback(self, event):
         info = self.ingredientBox.GetValue().split()
         number = max(int(info[1]) + 1, 0)
-        minStock = int(info[2])
-        print(minStock)
-        text = info[0] + " " + str(number) + " " + str(minStock)
+        text = info[0] + " " + str(number)
         self.ingredientBox.Clear()
         self.ingredientBox.AppendText(text)
-        self.Ingredience[self.IngrediencePointer] = info[0] + " " + str(number) + " " + str(minStock)
+        self.Ingredience[self.IngrediencePointer] = info[0] + " " + str(number)
 
     def saveIngredience(self):
         ingredianceFile = open(self.IngredianceFileName, 'w')
         for item in self.IngredienceDict.items():
-            temp = (self.Ingredience[item[1]]).split(" ")
-            ingredianceFile.write(item[0] + " " + str(temp[1] + " " + str(temp[2]) + "\n"))
+            ingredianceFile.write(item[0] + " " + str((self.Ingredience[item[1]]).split(" ")[1]) + "\n")
         ingredianceFile.close()
 
     def readMenu(self):
@@ -370,17 +362,14 @@ class Example(wx.Frame):
         menuText = "\nShopping List\n------------------\n\n"
         number = 0
         for item in self.Ingredience:
-            itemSplit = item.split(" ")
-            ingredient = itemSplit[0]
-            number = int(itemSplit[1])
-            minStock = int(itemSplit[2])
-            if number < minStock:
-                menuText += ingredient+" "+str(minStock-number)+"\n"
+            itemDetails = item.split(" ")
+            if int(itemDetails[1]) < 0:
+                menuText += itemDetails[0]+" "+str(-int(itemDetails[1]))+"\n"
             number += 1
 
         thisCat = self.getRandomCat
 
-        menuText = menuText + thisCat + "\n\n\n"
+        menuText = menuText + thisCat + "\n\n\nxxxx\n"
 
         if number > 0:
             for address in emailAddresses:
@@ -409,15 +398,10 @@ class Example(wx.Frame):
     def refreshShoppingList(self):
         self.shoppinglistBox.Clear()
         for item in self.Ingredience:
-            itemSplit = item.split(" ")
-            ingredient = itemSplit[0]
-            number = int(itemSplit[1])
-            minStock = int(itemSplit[2])
-#           if number < 0:
-#             self.shoppinglistBox.Append(ingredient+" "+str(-number))
-            if number < minStock:
-                self.shoppinglistBox.Append(ingredient+" "+str(minStock-number))
-
+            ingredient = item.split(" ")[0]
+            number = int(item.split(" ")[1])
+            if number < 0:
+                self.shoppinglistBox.Append(ingredient+" "+str(-number))
 
     def writeALL(self, event):
         self.saveDishes()
@@ -516,5 +500,5 @@ class chooseMealWindow(wx.Frame):
 
 
 app = wx.App()
-mywin = Example(None, title='Shopping list management')
+mywin = Example(None, title='BoxSizer demo')
 app.MainLoop()
