@@ -1,0 +1,1397 @@
+
+
+Sun Oct 11 19:48:28 2020
+Command line: TestDisk
+
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 5.4.0-40-generic (#44-Ubuntu SMP Tue Jun 23 00:01:04 UTC 2020) x86_64
+Compiler: GCC 9.2
+ext2fs lib: 1.45.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.1
+User is not root!
+Hard disk list
+
+
+TestDisk exited normally.
+Using locale 'en_GB.UTF-8'.
+
+
+Sun Oct 11 19:48:28 2020
+Command line: TestDisk /debug
+
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 5.4.0-40-generic (#44-Ubuntu SMP Tue Jun 23 00:01:04 UTC 2020) x86_64
+Compiler: GCC 9.2
+ext2fs lib: 1.45.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.1
+/dev/sda: LBA, HPA, LBA48 support
+/dev/sda: size       468862128 sectors
+/dev/sda: user_max   468862128 sectors
+/dev/sda: native_max 468862128 sectors
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop0 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop1 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop2 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop3 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop4 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop5 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop6 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop7 - 0 B - 0 sectors, sector size=512
+Hard disk list
+Disk /dev/sda - 240 GB / 223 GiB - CHS 29185 255 63, sector size=512 - CT240BX500SSD1, S/N:1936E1984E22, FW:M6CR013
+Disk /dev/sdb - 16 GB / 15 GiB - CHS 15389 64 32, sector size=512 - Generic USB  SD Reader, FW:1.00
+
+Partition table type (auto): Intel
+Disk /dev/sdb - 16 GB / 15 GiB - Generic USB  SD Reader
+Partition table type: Intel
+
+Analyse Disk /dev/sdb - 16 GB / 15 GiB - CHS 15389 64 32
+Geometry from i386 MBR: head=255 sector=63
+BAD_RS LBA=2048 1056
+FAT32 at 1/0/1
+Info: size boot_sector 31514624, partition 31514624
+FAT1 : 2022-17394
+FAT2 : 17395-32767
+start_rootdir : 32768 root cluster : 2
+Data : 32768-31514623
+sectors : 31514624
+cluster_size : 16
+no_of_cluster : 1967616 (2 - 1967617)
+fat_length 15373 calculated 15373
+heads/cylinder 255 (FAT) != 64 (HD)
+sect/track 63 (FAT) != 32 (HD)
+get_geometry_from_list_part_aux head=64 nbr=2
+get_geometry_from_list_part_aux head=8 nbr=2
+get_geometry_from_list_part_aux head=16 nbr=2
+get_geometry_from_list_part_aux head=32 nbr=2
+get_geometry_from_list_part_aux head=64 nbr=2
+Current partition structure:
+Warning: number of heads/cylinder mismatches 255 (FAT) != 64 (HD)
+Warning: number of sectors per track mismatches 63 (FAT) != 32 (HD)
+ 1 * FAT32 LBA                1   0  1 15388  63 32   31514624 [RECOVERY]
+
+Warning: Bad starting sector (CHS and LBA don't match)
+
+search_part()
+Disk /dev/sdb - 16 GB / 15 GiB - CHS 15389 64 32
+FAT32 at 1/0/1
+FAT1 : 2022-17394
+FAT2 : 17395-32767
+start_rootdir : 32768 root cluster : 2
+Data : 32768-31514623
+sectors : 31514624
+cluster_size : 16
+no_of_cluster : 1967616 (2 - 1967617)
+fat_length 15373 calculated 15373
+heads/cylinder 255 (FAT) != 64 (HD)
+sect/track 63 (FAT) != 32 (HD)
+
+FAT32 at 1/0/1
+FAT: cluster=2(0x2), pos=34816
+     FAT32 LBA                1   0  1 15388  63 32   31514624 [RECOVERY]
+     FAT32, blocksize=8192, 16 GB / 15 GiB
+get_geometry_from_list_part_aux head=64 nbr=2
+get_geometry_from_list_part_aux head=8 nbr=2
+get_geometry_from_list_part_aux head=16 nbr=2
+get_geometry_from_list_part_aux head=32 nbr=2
+get_geometry_from_list_part_aux head=64 nbr=2
+
+Results
+   * FAT32 LBA                1   0  1 15388  63 32   31514624 [RECOVERY]
+     FAT32, blocksize=8192, 16 GB / 15 GiB
+
+Hint for advanced users: dmsetup may be used if you prefer to avoid rewriting the partition table for the moment:
+echo "0 31514624 linear /dev/sdb 2048" | dmsetup create test0
+
+interface_write()
+ 1 * FAT32 LBA                1   0  1 15388  63 32   31514624 [RECOVERY]
+
+search_part()
+Disk /dev/sdb - 16 GB / 15 GiB - CHS 15389 64 32
+FAT32 at 1/0/1
+FAT1 : 2022-17394
+FAT2 : 17395-32767
+start_rootdir : 32768 root cluster : 2
+Data : 32768-31514623
+sectors : 31514624
+cluster_size : 16
+no_of_cluster : 1967616 (2 - 1967617)
+fat_length 15373 calculated 15373
+heads/cylinder 255 (FAT) != 64 (HD)
+sect/track 63 (FAT) != 32 (HD)
+
+FAT32 at 1/0/1
+FAT: cluster=2(0x2), pos=34816
+     FAT32 LBA                1   0  1 15388  63 32   31514624 [RECOVERY]
+     FAT32, blocksize=8192, 16 GB / 15 GiB
+FAT32 at 1/0/7
+FAT1 : 2022-17394
+FAT2 : 17395-32767
+start_rootdir : 32768 root cluster : 2
+Data : 32768-31514623
+sectors : 31514624
+cluster_size : 16
+no_of_cluster : 1967616 (2 - 1967617)
+fat_length 15373 calculated 15373
+heads/cylinder 255 (FAT) != 64 (HD)
+sect/track 63 (FAT) != 32 (HD)
+set_FAT_info: name from BS used
+
+FAT32 at 1/0/7
+FAT: cluster=2(0x2), pos=34816
+     FAT32 LBA                1   0  1 15388  63 32   31514624 [NO NAME]
+     FAT32, blocksize=8192, 16 GB / 15 GiB
+get_geometry_from_list_part_aux head=64 nbr=2
+get_geometry_from_list_part_aux head=8 nbr=2
+get_geometry_from_list_part_aux head=16 nbr=2
+get_geometry_from_list_part_aux head=32 nbr=2
+get_geometry_from_list_part_aux head=64 nbr=2
+
+Results
+   * FAT32 LBA                1   0  1 15388  63 32   31514624 [RECOVERY]
+     FAT32, blocksize=8192, 16 GB / 15 GiB
+
+Hint for advanced users: dmsetup may be used if you prefer to avoid rewriting the partition table for the moment:
+echo "0 31514624 linear /dev/sdb 2048" | dmsetup create test0
+
+interface_write()
+ 1 * FAT32 LBA                1   0  1 15388  63 32   31514624 [RECOVERY]
+simulate write!
+
+write_mbr_i386: starting...
+write_all_log_i386: starting...
+No extended partition
+
+Interface Advanced
+Geometry from i386 MBR: head=255 sector=63
+BAD_RS LBA=2048 1056
+FAT32 at 1/0/1
+Info: size boot_sector 31514624, partition 31514624
+FAT1 : 2022-17394
+FAT2 : 17395-32767
+start_rootdir : 32768 root cluster : 2
+Data : 32768-31514623
+sectors : 31514624
+cluster_size : 16
+no_of_cluster : 1967616 (2 - 1967617)
+fat_length 15373 calculated 15373
+heads/cylinder 255 (FAT) != 64 (HD)
+sect/track 63 (FAT) != 32 (HD)
+get_geometry_from_list_part_aux head=64 nbr=2
+get_geometry_from_list_part_aux head=8 nbr=2
+get_geometry_from_list_part_aux head=16 nbr=2
+get_geometry_from_list_part_aux head=32 nbr=2
+get_geometry_from_list_part_aux head=64 nbr=2
+ 1 * FAT32 LBA                1   0  1 15388  63 32   31514624 [RECOVERY]
+     FAT32, blocksize=8192, 16 GB / 15 GiB
+
+FAT: cluster=2(0x2), pos=34816
+Directory /
+       3 drwxr-xr-x     0      0         0 21-Nov-2016 16:11 System Volume Information
+       6 drwxr-xr-x     0      0         0 31-Dec-2010 23:00 CANON_SC
+       0 -rwxr-xr-x     0      0         0 21-Nov-2016 17:19 XX
+      13 -rwxr-xr-x     0      0       512 29-Sep-2020 23:02 NIKON001.DSC
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 DCIM
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+X     16 -rwxr-xr-x     0      0   5017310 29-Sep-2020 23:02 _SCN6970.JPG
+X    629 -rwxr-xr-x     0      0   6759135 10-Oct-2020 09:09 _SCN6971.JPG
+X   1455 -rwxr-xr-x     0      0   5718662 10-Oct-2020 09:11 _SCN6972.JPG
+X   2154 -rwxr-xr-x     0      0   7321036 10-Oct-2020 09:11 _SCN6973.JPG
+X   3048 -rwxr-xr-x     0      0   6990463 10-Oct-2020 09:16 _SCN6974.JPG
+X   3902 -rwxr-xr-x     0      0   7140898 10-Oct-2020 09:16 _SCN6975.JPG
+X   4774 -rwxr-xr-x     0      0   7223992 10-Oct-2020 09:16 _SCN6976.JPG
+X   5656 -rwxr-xr-x     0      0   6899579 10-Oct-2020 09:22 _SCN6977.JPG
+X   6499 -rwxr-xr-x     0      0   6960154 10-Oct-2020 09:34 _SCN6978.JPG
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 _SCN6979.JPG
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 _SCN6980.JPG
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 _SCN6981.JPG
+X   9921 -rwxr-xr-x     0      0   6584909 10-Oct-2020 09:36 _SCN6982.JPG
+X  10725 -rwxr-xr-x     0      0   6398440 10-Oct-2020 09:36 _SCN6983.JPG
+X  11507 -rwxr-xr-x     0      0   6808311 10-Oct-2020 09:37 _SCN6984.JPG
+X  12339 -rwxr-xr-x     0      0   7171663 10-Oct-2020 09:43 _SCN6985.JPG
+X  13215 -rwxr-xr-x     0      0   7055281 10-Oct-2020 09:45 _SCN6986.JPG
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 _SCN6987.JPG
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 _SCN6988.JPG
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 _SCN6989.JPG
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 _SCN6990.JPG
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 _SCN6991.JPG
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 _SCN6992.JPG
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 _SCN6993.JPG
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 _SCN6994.JPG
+X  20369 -rwxr-xr-x     0      0   6209344 10-Oct-2020 09:59 _SCN6995.JPG
+X  21127 -rwxr-xr-x     0      0   6462866 10-Oct-2020 10:07 _SCN6996.JPG
+X  21916 -rwxr-xr-x     0      0   6806962 10-Oct-2020 10:08 _SCN6997.JPG
+X  22747 -rwxr-xr-x     0      0   6829860 10-Oct-2020 10:09 _SCN6998.JPG
+X  23581 -rwxr-xr-x     0      0   6910768 10-Oct-2020 10:09 _SCN6999.JPG
+X  24425 -rwxr-xr-x     0      0   7253771 10-Oct-2020 10:14 _SCN7000.JPG
+X  25311 -rwxr-xr-x     0      0   6214723 10-Oct-2020 10:15 _SCN7001.JPG
+X  26070 -rwxr-xr-x     0      0   6949360 10-Oct-2020 10:17 _SCN7002.JPG
+X  26919 -rwxr-xr-x     0      0   7179190 10-Oct-2020 10:24 _SCN7003.JPG
+X  27796 -rwxr-xr-x     0      0   6891994 10-Oct-2020 10:24 _SCN7004.JPG
+X  28638 -rwxr-xr-x     0      0   6927852 10-Oct-2020 10:25 _SCN7005.JPG
+X  29484 -rwxr-xr-x     0      0   7194125 10-Oct-2020 10:28 _SCN7006.JPG
+X  30363 -rwxr-xr-x     0      0   6646651 10-Oct-2020 10:29 _SCN7007.JPG
+X  31175 -rwxr-xr-x     0      0   6682392 10-Oct-2020 10:32 _SCN7008.JPG
+X  31991 -rwxr-xr-x     0      0   6801623 10-Oct-2020 10:37 _SCN7009.JPG
+X  32822 -rwxr-xr-x     0      0   7017478 10-Oct-2020 10:37 _SCN7010.JPG
+X  65538 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 DSCN6979.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6979.JPG~RFc426e7a.TMP
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 DSCN6979.JPG~RFc426e7a.TMP
+X      2 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 _SCN6979.JPG
+X  66364 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 DSCN6980.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6980.JPG~RFc42800e.TMP
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 DSCN6980.JPG~RFc42800e.TMP
+X    828 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 _SCN6980.JPG
+X  67226 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 DSCN6981.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6981.JPG~RFc428d5c.TMP
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 DSCN6981.JPG~RFc428d5c.TMP
+X   1690 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 _SCN6981.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432602.TMP
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 DSCN6987.JPG~RFc432602.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X   1546 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  68110 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X   2574 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 DSCN6988.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6988.JPG~RFc4429b6.TMP
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 DSCN6988.JPG~RFc4429b6.TMP
+X    828 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 _SCN6988.JPG
+X  66663 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 DSCN6989.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6989.JPG~RFc4484c7.TMP
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 DSCN6989.JPG~RFc4484c7.TMP
+X   1127 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 _SCN6989.JPG
+X  68386 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 DSCN6990.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6990.JPG~RFc451b5a.TMP
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 DSCN6990.JPG~RFc451b5a.TMP
+X   2850 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 _SCN6990.JPG
+X  68612 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 DSCN6991.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6991.JPG~RFc4574a5.TMP
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 DSCN6991.JPG~RFc4574a5.TMP
+X   3076 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 _SCN6991.JPG
+X  68612 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 DSCN6992.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6992.JPG~RFc45ec94.TMP
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 DSCN6992.JPG~RFc45ec94.TMP
+X   3076 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 _SCN6992.JPG
+X  68956 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 DSCN6993.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6993.JPG~RFc463f87.TMP
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 DSCN6993.JPG~RFc463f87.TMP
+X   3420 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 _SCN6993.JPG
+X  69261 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 DSCN6994.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:26 DSCN6994.JPG~RFc46a71a.TMP
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 DSCN6994.JPG~RFc46a71a.TMP
+X   3725 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 _SCN6994.JPG
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+X     16 -rwxr-xr-x     0      0   5017310 29-Sep-2020 23:02 _SCN6970.JPG
+X    629 -rwxr-xr-x     0      0   6759135 10-Oct-2020 09:09 _SCN6971.JPG
+X   1455 -rwxr-xr-x     0      0   5718662 10-Oct-2020 09:11 _SCN6972.JPG
+X   2154 -rwxr-xr-x     0      0   7321036 10-Oct-2020 09:11 _SCN6973.JPG
+X   3048 -rwxr-xr-x     0      0   6990463 10-Oct-2020 09:16 _SCN6974.JPG
+X   3902 -rwxr-xr-x     0      0   7140898 10-Oct-2020 09:16 _SCN6975.JPG
+X   4774 -rwxr-xr-x     0      0   7223992 10-Oct-2020 09:16 _SCN6976.JPG
+X   5656 -rwxr-xr-x     0      0   6899579 10-Oct-2020 09:22 _SCN6977.JPG
+X   6499 -rwxr-xr-x     0      0   6960154 10-Oct-2020 09:34 _SCN6978.JPG
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 _SCN6979.JPG
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 _SCN6980.JPG
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 _SCN6981.JPG
+X   9921 -rwxr-xr-x     0      0   6584909 10-Oct-2020 09:36 _SCN6982.JPG
+X  10725 -rwxr-xr-x     0      0   6398440 10-Oct-2020 09:36 _SCN6983.JPG
+X  11507 -rwxr-xr-x     0      0   6808311 10-Oct-2020 09:37 _SCN6984.JPG
+X  12339 -rwxr-xr-x     0      0   7171663 10-Oct-2020 09:43 _SCN6985.JPG
+X  13215 -rwxr-xr-x     0      0   7055281 10-Oct-2020 09:45 _SCN6986.JPG
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 _SCN6987.JPG
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 _SCN6988.JPG
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 _SCN6989.JPG
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 _SCN6990.JPG
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 _SCN6991.JPG
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 _SCN6992.JPG
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 _SCN6993.JPG
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 _SCN6994.JPG
+X  20369 -rwxr-xr-x     0      0   6209344 10-Oct-2020 09:59 _SCN6995.JPG
+X  21127 -rwxr-xr-x     0      0   6462866 10-Oct-2020 10:07 _SCN6996.JPG
+X  21916 -rwxr-xr-x     0      0   6806962 10-Oct-2020 10:08 _SCN6997.JPG
+X  22747 -rwxr-xr-x     0      0   6829860 10-Oct-2020 10:09 _SCN6998.JPG
+X  23581 -rwxr-xr-x     0      0   6910768 10-Oct-2020 10:09 _SCN6999.JPG
+X  24425 -rwxr-xr-x     0      0   7253771 10-Oct-2020 10:14 _SCN7000.JPG
+X  25311 -rwxr-xr-x     0      0   6214723 10-Oct-2020 10:15 _SCN7001.JPG
+X  26070 -rwxr-xr-x     0      0   6949360 10-Oct-2020 10:17 _SCN7002.JPG
+X  26919 -rwxr-xr-x     0      0   7179190 10-Oct-2020 10:24 _SCN7003.JPG
+X  27796 -rwxr-xr-x     0      0   6891994 10-Oct-2020 10:24 _SCN7004.JPG
+X  28638 -rwxr-xr-x     0      0   6927852 10-Oct-2020 10:25 _SCN7005.JPG
+X  29484 -rwxr-xr-x     0      0   7194125 10-Oct-2020 10:28 _SCN7006.JPG
+X  30363 -rwxr-xr-x     0      0   6646651 10-Oct-2020 10:29 _SCN7007.JPG
+X  31175 -rwxr-xr-x     0      0   6682392 10-Oct-2020 10:32 _SCN7008.JPG
+X  31991 -rwxr-xr-x     0      0   6801623 10-Oct-2020 10:37 _SCN7009.JPG
+X  32822 -rwxr-xr-x     0      0   7017478 10-Oct-2020 10:37 _SCN7010.JPG
+X  65538 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 DSCN6979.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6979.JPG~RFc426e7a.TMP
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 DSCN6979.JPG~RFc426e7a.TMP
+X      2 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 _SCN6979.JPG
+X  66364 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 DSCN6980.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6980.JPG~RFc42800e.TMP
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 DSCN6980.JPG~RFc42800e.TMP
+X    828 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 _SCN6980.JPG
+X  67226 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 DSCN6981.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6981.JPG~RFc428d5c.TMP
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 DSCN6981.JPG~RFc428d5c.TMP
+X   1690 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 _SCN6981.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432602.TMP
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 DSCN6987.JPG~RFc432602.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X   1546 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  68110 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X   2574 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 DSCN6988.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6988.JPG~RFc4429b6.TMP
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 DSCN6988.JPG~RFc4429b6.TMP
+X    828 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 _SCN6988.JPG
+X  66663 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 DSCN6989.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6989.JPG~RFc4484c7.TMP
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 DSCN6989.JPG~RFc4484c7.TMP
+X   1127 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 _SCN6989.JPG
+X  68386 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 DSCN6990.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6990.JPG~RFc451b5a.TMP
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 DSCN6990.JPG~RFc451b5a.TMP
+X   2850 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 _SCN6990.JPG
+X  68612 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 DSCN6991.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6991.JPG~RFc4574a5.TMP
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 DSCN6991.JPG~RFc4574a5.TMP
+X   3076 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 _SCN6991.JPG
+X  68612 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 DSCN6992.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6992.JPG~RFc45ec94.TMP
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 DSCN6992.JPG~RFc45ec94.TMP
+X   3076 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 _SCN6992.JPG
+X  68956 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 DSCN6993.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6993.JPG~RFc463f87.TMP
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 DSCN6993.JPG~RFc463f87.TMP
+X   3420 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 _SCN6993.JPG
+X  69261 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 DSCN6994.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:26 DSCN6994.JPG~RFc46a71a.TMP
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 DSCN6994.JPG~RFc46a71a.TMP
+X   3725 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 _SCN6994.JPG
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+X     16 -rwxr-xr-x     0      0   5017310 29-Sep-2020 23:02 _SCN6970.JPG
+X    629 -rwxr-xr-x     0      0   6759135 10-Oct-2020 09:09 _SCN6971.JPG
+X   1455 -rwxr-xr-x     0      0   5718662 10-Oct-2020 09:11 _SCN6972.JPG
+X   2154 -rwxr-xr-x     0      0   7321036 10-Oct-2020 09:11 _SCN6973.JPG
+X   3048 -rwxr-xr-x     0      0   6990463 10-Oct-2020 09:16 _SCN6974.JPG
+X   3902 -rwxr-xr-x     0      0   7140898 10-Oct-2020 09:16 _SCN6975.JPG
+X   4774 -rwxr-xr-x     0      0   7223992 10-Oct-2020 09:16 _SCN6976.JPG
+X   5656 -rwxr-xr-x     0      0   6899579 10-Oct-2020 09:22 _SCN6977.JPG
+X   6499 -rwxr-xr-x     0      0   6960154 10-Oct-2020 09:34 _SCN6978.JPG
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 _SCN6979.JPG
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 _SCN6980.JPG
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 _SCN6981.JPG
+X   9921 -rwxr-xr-x     0      0   6584909 10-Oct-2020 09:36 _SCN6982.JPG
+X  10725 -rwxr-xr-x     0      0   6398440 10-Oct-2020 09:36 _SCN6983.JPG
+X  11507 -rwxr-xr-x     0      0   6808311 10-Oct-2020 09:37 _SCN6984.JPG
+X  12339 -rwxr-xr-x     0      0   7171663 10-Oct-2020 09:43 _SCN6985.JPG
+X  13215 -rwxr-xr-x     0      0   7055281 10-Oct-2020 09:45 _SCN6986.JPG
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 _SCN6987.JPG
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 _SCN6988.JPG
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 _SCN6989.JPG
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 _SCN6990.JPG
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 _SCN6991.JPG
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 _SCN6992.JPG
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 _SCN6993.JPG
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 _SCN6994.JPG
+X  20369 -rwxr-xr-x     0      0   6209344 10-Oct-2020 09:59 _SCN6995.JPG
+X  21127 -rwxr-xr-x     0      0   6462866 10-Oct-2020 10:07 _SCN6996.JPG
+X  21916 -rwxr-xr-x     0      0   6806962 10-Oct-2020 10:08 _SCN6997.JPG
+X  22747 -rwxr-xr-x     0      0   6829860 10-Oct-2020 10:09 _SCN6998.JPG
+X  23581 -rwxr-xr-x     0      0   6910768 10-Oct-2020 10:09 _SCN6999.JPG
+X  24425 -rwxr-xr-x     0      0   7253771 10-Oct-2020 10:14 _SCN7000.JPG
+X  25311 -rwxr-xr-x     0      0   6214723 10-Oct-2020 10:15 _SCN7001.JPG
+X  26070 -rwxr-xr-x     0      0   6949360 10-Oct-2020 10:17 _SCN7002.JPG
+X  26919 -rwxr-xr-x     0      0   7179190 10-Oct-2020 10:24 _SCN7003.JPG
+X  27796 -rwxr-xr-x     0      0   6891994 10-Oct-2020 10:24 _SCN7004.JPG
+X  28638 -rwxr-xr-x     0      0   6927852 10-Oct-2020 10:25 _SCN7005.JPG
+X  29484 -rwxr-xr-x     0      0   7194125 10-Oct-2020 10:28 _SCN7006.JPG
+X  30363 -rwxr-xr-x     0      0   6646651 10-Oct-2020 10:29 _SCN7007.JPG
+X  31175 -rwxr-xr-x     0      0   6682392 10-Oct-2020 10:32 _SCN7008.JPG
+X  31991 -rwxr-xr-x     0      0   6801623 10-Oct-2020 10:37 _SCN7009.JPG
+X  32822 -rwxr-xr-x     0      0   7017478 10-Oct-2020 10:37 _SCN7010.JPG
+X  65538 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 DSCN6979.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6979.JPG~RFc426e7a.TMP
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 DSCN6979.JPG~RFc426e7a.TMP
+X      2 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 _SCN6979.JPG
+X  66364 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 DSCN6980.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6980.JPG~RFc42800e.TMP
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 DSCN6980.JPG~RFc42800e.TMP
+X    828 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 _SCN6980.JPG
+X  67226 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 DSCN6981.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6981.JPG~RFc428d5c.TMP
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 DSCN6981.JPG~RFc428d5c.TMP
+X   1690 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 _SCN6981.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432602.TMP
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 DSCN6987.JPG~RFc432602.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X   1546 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  68110 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X   2574 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 DSCN6988.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6988.JPG~RFc4429b6.TMP
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 DSCN6988.JPG~RFc4429b6.TMP
+X    828 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 _SCN6988.JPG
+X  66663 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 DSCN6989.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6989.JPG~RFc4484c7.TMP
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 DSCN6989.JPG~RFc4484c7.TMP
+X   1127 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 _SCN6989.JPG
+X  68386 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 DSCN6990.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6990.JPG~RFc451b5a.TMP
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 DSCN6990.JPG~RFc451b5a.TMP
+X   2850 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 _SCN6990.JPG
+X  68612 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 DSCN6991.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6991.JPG~RFc4574a5.TMP
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 DSCN6991.JPG~RFc4574a5.TMP
+X   3076 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 _SCN6991.JPG
+X  68612 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 DSCN6992.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6992.JPG~RFc45ec94.TMP
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 DSCN6992.JPG~RFc45ec94.TMP
+X   3076 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 _SCN6992.JPG
+X  68956 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 DSCN6993.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6993.JPG~RFc463f87.TMP
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 DSCN6993.JPG~RFc463f87.TMP
+X   3420 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 _SCN6993.JPG
+X  69261 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 DSCN6994.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:26 DSCN6994.JPG~RFc46a71a.TMP
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 DSCN6994.JPG~RFc46a71a.TMP
+X   3725 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 _SCN6994.JPG
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+X     16 -rwxr-xr-x     0      0   5017310 29-Sep-2020 23:02 _SCN6970.JPG
+X    629 -rwxr-xr-x     0      0   6759135 10-Oct-2020 09:09 _SCN6971.JPG
+X   1455 -rwxr-xr-x     0      0   5718662 10-Oct-2020 09:11 _SCN6972.JPG
+X   2154 -rwxr-xr-x     0      0   7321036 10-Oct-2020 09:11 _SCN6973.JPG
+X   3048 -rwxr-xr-x     0      0   6990463 10-Oct-2020 09:16 _SCN6974.JPG
+X   3902 -rwxr-xr-x     0      0   7140898 10-Oct-2020 09:16 _SCN6975.JPG
+X   4774 -rwxr-xr-x     0      0   7223992 10-Oct-2020 09:16 _SCN6976.JPG
+X   5656 -rwxr-xr-x     0      0   6899579 10-Oct-2020 09:22 _SCN6977.JPG
+X   6499 -rwxr-xr-x     0      0   6960154 10-Oct-2020 09:34 _SCN6978.JPG
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 _SCN6979.JPG
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 _SCN6980.JPG
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 _SCN6981.JPG
+X   9921 -rwxr-xr-x     0      0   6584909 10-Oct-2020 09:36 _SCN6982.JPG
+X  10725 -rwxr-xr-x     0      0   6398440 10-Oct-2020 09:36 _SCN6983.JPG
+X  11507 -rwxr-xr-x     0      0   6808311 10-Oct-2020 09:37 _SCN6984.JPG
+X  12339 -rwxr-xr-x     0      0   7171663 10-Oct-2020 09:43 _SCN6985.JPG
+X  13215 -rwxr-xr-x     0      0   7055281 10-Oct-2020 09:45 _SCN6986.JPG
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 _SCN6987.JPG
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 _SCN6988.JPG
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 _SCN6989.JPG
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 _SCN6990.JPG
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 _SCN6991.JPG
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 _SCN6992.JPG
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 _SCN6993.JPG
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 _SCN6994.JPG
+X  20369 -rwxr-xr-x     0      0   6209344 10-Oct-2020 09:59 _SCN6995.JPG
+X  21127 -rwxr-xr-x     0      0   6462866 10-Oct-2020 10:07 _SCN6996.JPG
+X  21916 -rwxr-xr-x     0      0   6806962 10-Oct-2020 10:08 _SCN6997.JPG
+X  22747 -rwxr-xr-x     0      0   6829860 10-Oct-2020 10:09 _SCN6998.JPG
+X  23581 -rwxr-xr-x     0      0   6910768 10-Oct-2020 10:09 _SCN6999.JPG
+X  24425 -rwxr-xr-x     0      0   7253771 10-Oct-2020 10:14 _SCN7000.JPG
+X  25311 -rwxr-xr-x     0      0   6214723 10-Oct-2020 10:15 _SCN7001.JPG
+X  26070 -rwxr-xr-x     0      0   6949360 10-Oct-2020 10:17 _SCN7002.JPG
+X  26919 -rwxr-xr-x     0      0   7179190 10-Oct-2020 10:24 _SCN7003.JPG
+X  27796 -rwxr-xr-x     0      0   6891994 10-Oct-2020 10:24 _SCN7004.JPG
+X  28638 -rwxr-xr-x     0      0   6927852 10-Oct-2020 10:25 _SCN7005.JPG
+X  29484 -rwxr-xr-x     0      0   7194125 10-Oct-2020 10:28 _SCN7006.JPG
+X  30363 -rwxr-xr-x     0      0   6646651 10-Oct-2020 10:29 _SCN7007.JPG
+X  31175 -rwxr-xr-x     0      0   6682392 10-Oct-2020 10:32 _SCN7008.JPG
+X  31991 -rwxr-xr-x     0      0   6801623 10-Oct-2020 10:37 _SCN7009.JPG
+X  32822 -rwxr-xr-x     0      0   7017478 10-Oct-2020 10:37 _SCN7010.JPG
+X  65538 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 DSCN6979.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6979.JPG~RFc426e7a.TMP
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 DSCN6979.JPG~RFc426e7a.TMP
+X      2 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 _SCN6979.JPG
+X  66364 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 DSCN6980.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6980.JPG~RFc42800e.TMP
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 DSCN6980.JPG~RFc42800e.TMP
+X    828 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 _SCN6980.JPG
+X  67226 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 DSCN6981.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6981.JPG~RFc428d5c.TMP
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 DSCN6981.JPG~RFc428d5c.TMP
+X   1690 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 _SCN6981.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432602.TMP
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 DSCN6987.JPG~RFc432602.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X   1546 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  68110 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X   2574 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 DSCN6988.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6988.JPG~RFc4429b6.TMP
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 DSCN6988.JPG~RFc4429b6.TMP
+X    828 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 _SCN6988.JPG
+X  66663 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 DSCN6989.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6989.JPG~RFc4484c7.TMP
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 DSCN6989.JPG~RFc4484c7.TMP
+X   1127 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 _SCN6989.JPG
+X  68386 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 DSCN6990.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6990.JPG~RFc451b5a.TMP
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 DSCN6990.JPG~RFc451b5a.TMP
+X   2850 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 _SCN6990.JPG
+X  68612 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 DSCN6991.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6991.JPG~RFc4574a5.TMP
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 DSCN6991.JPG~RFc4574a5.TMP
+X   3076 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 _SCN6991.JPG
+X  68612 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 DSCN6992.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6992.JPG~RFc45ec94.TMP
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 DSCN6992.JPG~RFc45ec94.TMP
+X   3076 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 _SCN6992.JPG
+X  68956 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 DSCN6993.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6993.JPG~RFc463f87.TMP
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 DSCN6993.JPG~RFc463f87.TMP
+X   3420 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 _SCN6993.JPG
+X  69261 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 DSCN6994.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:26 DSCN6994.JPG~RFc46a71a.TMP
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 DSCN6994.JPG~RFc46a71a.TMP
+X   3725 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 _SCN6994.JPG
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+X     16 -rwxr-xr-x     0      0   5017310 29-Sep-2020 23:02 _SCN6970.JPG
+X    629 -rwxr-xr-x     0      0   6759135 10-Oct-2020 09:09 _SCN6971.JPG
+X   1455 -rwxr-xr-x     0      0   5718662 10-Oct-2020 09:11 _SCN6972.JPG
+X   2154 -rwxr-xr-x     0      0   7321036 10-Oct-2020 09:11 _SCN6973.JPG
+X   3048 -rwxr-xr-x     0      0   6990463 10-Oct-2020 09:16 _SCN6974.JPG
+X   3902 -rwxr-xr-x     0      0   7140898 10-Oct-2020 09:16 _SCN6975.JPG
+X   4774 -rwxr-xr-x     0      0   7223992 10-Oct-2020 09:16 _SCN6976.JPG
+X   5656 -rwxr-xr-x     0      0   6899579 10-Oct-2020 09:22 _SCN6977.JPG
+X   6499 -rwxr-xr-x     0      0   6960154 10-Oct-2020 09:34 _SCN6978.JPG
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 _SCN6979.JPG
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 _SCN6980.JPG
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 _SCN6981.JPG
+X   9921 -rwxr-xr-x     0      0   6584909 10-Oct-2020 09:36 _SCN6982.JPG
+X  10725 -rwxr-xr-x     0      0   6398440 10-Oct-2020 09:36 _SCN6983.JPG
+X  11507 -rwxr-xr-x     0      0   6808311 10-Oct-2020 09:37 _SCN6984.JPG
+X  12339 -rwxr-xr-x     0      0   7171663 10-Oct-2020 09:43 _SCN6985.JPG
+X  13215 -rwxr-xr-x     0      0   7055281 10-Oct-2020 09:45 _SCN6986.JPG
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 _SCN6987.JPG
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 _SCN6988.JPG
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 _SCN6989.JPG
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 _SCN6990.JPG
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 _SCN6991.JPG
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 _SCN6992.JPG
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 _SCN6993.JPG
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 _SCN6994.JPG
+X  20369 -rwxr-xr-x     0      0   6209344 10-Oct-2020 09:59 _SCN6995.JPG
+X  21127 -rwxr-xr-x     0      0   6462866 10-Oct-2020 10:07 _SCN6996.JPG
+X  21916 -rwxr-xr-x     0      0   6806962 10-Oct-2020 10:08 _SCN6997.JPG
+X  22747 -rwxr-xr-x     0      0   6829860 10-Oct-2020 10:09 _SCN6998.JPG
+X  23581 -rwxr-xr-x     0      0   6910768 10-Oct-2020 10:09 _SCN6999.JPG
+X  24425 -rwxr-xr-x     0      0   7253771 10-Oct-2020 10:14 _SCN7000.JPG
+X  25311 -rwxr-xr-x     0      0   6214723 10-Oct-2020 10:15 _SCN7001.JPG
+X  26070 -rwxr-xr-x     0      0   6949360 10-Oct-2020 10:17 _SCN7002.JPG
+X  26919 -rwxr-xr-x     0      0   7179190 10-Oct-2020 10:24 _SCN7003.JPG
+X  27796 -rwxr-xr-x     0      0   6891994 10-Oct-2020 10:24 _SCN7004.JPG
+X  28638 -rwxr-xr-x     0      0   6927852 10-Oct-2020 10:25 _SCN7005.JPG
+X  29484 -rwxr-xr-x     0      0   7194125 10-Oct-2020 10:28 _SCN7006.JPG
+X  30363 -rwxr-xr-x     0      0   6646651 10-Oct-2020 10:29 _SCN7007.JPG
+X  31175 -rwxr-xr-x     0      0   6682392 10-Oct-2020 10:32 _SCN7008.JPG
+X  31991 -rwxr-xr-x     0      0   6801623 10-Oct-2020 10:37 _SCN7009.JPG
+X  32822 -rwxr-xr-x     0      0   7017478 10-Oct-2020 10:37 _SCN7010.JPG
+X  65538 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 DSCN6979.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6979.JPG~RFc426e7a.TMP
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 DSCN6979.JPG~RFc426e7a.TMP
+X      2 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 _SCN6979.JPG
+X  66364 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 DSCN6980.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6980.JPG~RFc42800e.TMP
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 DSCN6980.JPG~RFc42800e.TMP
+X    828 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 _SCN6980.JPG
+X  67226 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 DSCN6981.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6981.JPG~RFc428d5c.TMP
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 DSCN6981.JPG~RFc428d5c.TMP
+X   1690 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 _SCN6981.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432602.TMP
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 DSCN6987.JPG~RFc432602.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X   1546 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  68110 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X   2574 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 DSCN6988.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6988.JPG~RFc4429b6.TMP
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 DSCN6988.JPG~RFc4429b6.TMP
+X    828 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 _SCN6988.JPG
+X  66663 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 DSCN6989.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6989.JPG~RFc4484c7.TMP
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 DSCN6989.JPG~RFc4484c7.TMP
+X   1127 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 _SCN6989.JPG
+X  68386 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 DSCN6990.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6990.JPG~RFc451b5a.TMP
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 DSCN6990.JPG~RFc451b5a.TMP
+X   2850 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 _SCN6990.JPG
+X  68612 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 DSCN6991.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6991.JPG~RFc4574a5.TMP
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 DSCN6991.JPG~RFc4574a5.TMP
+X   3076 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 _SCN6991.JPG
+X  68612 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 DSCN6992.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6992.JPG~RFc45ec94.TMP
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 DSCN6992.JPG~RFc45ec94.TMP
+X   3076 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 _SCN6992.JPG
+X  68956 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 DSCN6993.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6993.JPG~RFc463f87.TMP
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 DSCN6993.JPG~RFc463f87.TMP
+X   3420 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 _SCN6993.JPG
+X  69261 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 DSCN6994.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:26 DSCN6994.JPG~RFc46a71a.TMP
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 DSCN6994.JPG~RFc46a71a.TMP
+X   3725 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 _SCN6994.JPG
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+X     16 -rwxr-xr-x     0      0   5017310 29-Sep-2020 23:02 _SCN6970.JPG
+X    629 -rwxr-xr-x     0      0   6759135 10-Oct-2020 09:09 _SCN6971.JPG
+X   1455 -rwxr-xr-x     0      0   5718662 10-Oct-2020 09:11 _SCN6972.JPG
+X   2154 -rwxr-xr-x     0      0   7321036 10-Oct-2020 09:11 _SCN6973.JPG
+X   3048 -rwxr-xr-x     0      0   6990463 10-Oct-2020 09:16 _SCN6974.JPG
+X   3902 -rwxr-xr-x     0      0   7140898 10-Oct-2020 09:16 _SCN6975.JPG
+X   4774 -rwxr-xr-x     0      0   7223992 10-Oct-2020 09:16 _SCN6976.JPG
+X   5656 -rwxr-xr-x     0      0   6899579 10-Oct-2020 09:22 _SCN6977.JPG
+X   6499 -rwxr-xr-x     0      0   6960154 10-Oct-2020 09:34 _SCN6978.JPG
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 _SCN6979.JPG
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 _SCN6980.JPG
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 _SCN6981.JPG
+X   9921 -rwxr-xr-x     0      0   6584909 10-Oct-2020 09:36 _SCN6982.JPG
+X  10725 -rwxr-xr-x     0      0   6398440 10-Oct-2020 09:36 _SCN6983.JPG
+X  11507 -rwxr-xr-x     0      0   6808311 10-Oct-2020 09:37 _SCN6984.JPG
+X  12339 -rwxr-xr-x     0      0   7171663 10-Oct-2020 09:43 _SCN6985.JPG
+X  13215 -rwxr-xr-x     0      0   7055281 10-Oct-2020 09:45 _SCN6986.JPG
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 _SCN6987.JPG
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 _SCN6988.JPG
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 _SCN6989.JPG
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 _SCN6990.JPG
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 _SCN6991.JPG
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 _SCN6992.JPG
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 _SCN6993.JPG
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 _SCN6994.JPG
+X  20369 -rwxr-xr-x     0      0   6209344 10-Oct-2020 09:59 _SCN6995.JPG
+X  21127 -rwxr-xr-x     0      0   6462866 10-Oct-2020 10:07 _SCN6996.JPG
+X  21916 -rwxr-xr-x     0      0   6806962 10-Oct-2020 10:08 _SCN6997.JPG
+X  22747 -rwxr-xr-x     0      0   6829860 10-Oct-2020 10:09 _SCN6998.JPG
+X  23581 -rwxr-xr-x     0      0   6910768 10-Oct-2020 10:09 _SCN6999.JPG
+X  24425 -rwxr-xr-x     0      0   7253771 10-Oct-2020 10:14 _SCN7000.JPG
+X  25311 -rwxr-xr-x     0      0   6214723 10-Oct-2020 10:15 _SCN7001.JPG
+X  26070 -rwxr-xr-x     0      0   6949360 10-Oct-2020 10:17 _SCN7002.JPG
+X  26919 -rwxr-xr-x     0      0   7179190 10-Oct-2020 10:24 _SCN7003.JPG
+X  27796 -rwxr-xr-x     0      0   6891994 10-Oct-2020 10:24 _SCN7004.JPG
+X  28638 -rwxr-xr-x     0      0   6927852 10-Oct-2020 10:25 _SCN7005.JPG
+X  29484 -rwxr-xr-x     0      0   7194125 10-Oct-2020 10:28 _SCN7006.JPG
+X  30363 -rwxr-xr-x     0      0   6646651 10-Oct-2020 10:29 _SCN7007.JPG
+X  31175 -rwxr-xr-x     0      0   6682392 10-Oct-2020 10:32 _SCN7008.JPG
+X  31991 -rwxr-xr-x     0      0   6801623 10-Oct-2020 10:37 _SCN7009.JPG
+X  32822 -rwxr-xr-x     0      0   7017478 10-Oct-2020 10:37 _SCN7010.JPG
+X  65538 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 DSCN6979.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6979.JPG~RFc426e7a.TMP
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 DSCN6979.JPG~RFc426e7a.TMP
+X      2 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 _SCN6979.JPG
+X  66364 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 DSCN6980.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6980.JPG~RFc42800e.TMP
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 DSCN6980.JPG~RFc42800e.TMP
+X    828 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 _SCN6980.JPG
+X  67226 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 DSCN6981.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6981.JPG~RFc428d5c.TMP
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 DSCN6981.JPG~RFc428d5c.TMP
+X   1690 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 _SCN6981.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432602.TMP
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 DSCN6987.JPG~RFc432602.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X   1546 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  68110 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X   2574 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 DSCN6988.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6988.JPG~RFc4429b6.TMP
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 DSCN6988.JPG~RFc4429b6.TMP
+X    828 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 _SCN6988.JPG
+X  66663 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 DSCN6989.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6989.JPG~RFc4484c7.TMP
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 DSCN6989.JPG~RFc4484c7.TMP
+X   1127 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 _SCN6989.JPG
+X  68386 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 DSCN6990.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6990.JPG~RFc451b5a.TMP
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 DSCN6990.JPG~RFc451b5a.TMP
+X   2850 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 _SCN6990.JPG
+X  68612 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 DSCN6991.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6991.JPG~RFc4574a5.TMP
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 DSCN6991.JPG~RFc4574a5.TMP
+X   3076 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 _SCN6991.JPG
+X  68612 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 DSCN6992.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6992.JPG~RFc45ec94.TMP
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 DSCN6992.JPG~RFc45ec94.TMP
+X   3076 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 _SCN6992.JPG
+X  68956 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 DSCN6993.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6993.JPG~RFc463f87.TMP
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 DSCN6993.JPG~RFc463f87.TMP
+X   3420 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 _SCN6993.JPG
+X  69261 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 DSCN6994.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:26 DSCN6994.JPG~RFc46a71a.TMP
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 DSCN6994.JPG~RFc46a71a.TMP
+X   3725 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 _SCN6994.JPG
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6970.JPG first_cluster=16 (32992) size=5017310
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6970.JPG first_cluster=16 (32992) size=5017310
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6970.JPG first_cluster=16 (32992) size=5017310
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6971.JPG first_cluster=629 (42800) size=6759135
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6972.JPG first_cluster=1455 (56016) size=5718662
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6973.JPG first_cluster=2154 (67200) size=7321036
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6974.JPG first_cluster=3048 (81504) size=6990463
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6975.JPG first_cluster=3902 (95168) size=7140898
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6976.JPG first_cluster=4774 (109120) size=7223992
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6977.JPG first_cluster=5656 (123232) size=6899579
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6978.JPG first_cluster=6499 (136720) size=6960154
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6979.JPG first_cluster=7349 (150320) size=6760319
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6980.JPG first_cluster=8175 (163536) size=7055675
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6981.JPG first_cluster=9037 (177328) size=7240509
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6982.JPG first_cluster=9921 (191472) size=6584909
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6983.JPG first_cluster=10725 (204336) size=6398440
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6984.JPG first_cluster=11507 (216848) size=6808311
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6985.JPG first_cluster=12339 (230160) size=7171663
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6986.JPG first_cluster=13215 (244176) size=7055281
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6987.JPG first_cluster=14077 (257968) size=5874187
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6988.JPG first_cluster=14795 (269456) size=6125544
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6989.JPG first_cluster=15543 (281424) size=6501953
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6990.JPG first_cluster=16337 (294128) size=6325095
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6991.JPG first_cluster=17110 (306496) size=7196157
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6992.JPG first_cluster=17989 (320560) size=6900556
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6993.JPG first_cluster=18832 (334048) size=6329926
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6994.JPG first_cluster=19605 (346416) size=6253539
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6995.JPG first_cluster=20369 (358640) size=6209344
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6996.JPG first_cluster=21127 (370768) size=6462866
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6997.JPG first_cluster=21916 (383392) size=6806962
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6998.JPG first_cluster=22747 (396688) size=6829860
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6999.JPG first_cluster=23581 (410032) size=6910768
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7000.JPG first_cluster=24425 (423536) size=7253771
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7001.JPG first_cluster=25311 (437712) size=6214723
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7002.JPG first_cluster=26070 (449856) size=6949360
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7003.JPG first_cluster=26919 (463440) size=7179190
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7004.JPG first_cluster=27796 (477472) size=6891994
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7005.JPG first_cluster=28638 (490944) size=6927852
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7006.JPG first_cluster=29484 (504480) size=7194125
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7007.JPG first_cluster=30363 (518544) size=6646651
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7008.JPG first_cluster=31175 (531536) size=6682392
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7009.JPG first_cluster=31991 (544592) size=6801623
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7010.JPG first_cluster=32822 (557888) size=7017478
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/DSCN6979.JPG.~tmp first_cluster=65538 (1081344) size=6760319
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+X     16 -rwxr-xr-x     0      0   5017310 29-Sep-2020 23:02 _SCN6970.JPG
+X    629 -rwxr-xr-x     0      0   6759135 10-Oct-2020 09:09 _SCN6971.JPG
+X   1455 -rwxr-xr-x     0      0   5718662 10-Oct-2020 09:11 _SCN6972.JPG
+X   2154 -rwxr-xr-x     0      0   7321036 10-Oct-2020 09:11 _SCN6973.JPG
+X   3048 -rwxr-xr-x     0      0   6990463 10-Oct-2020 09:16 _SCN6974.JPG
+X   3902 -rwxr-xr-x     0      0   7140898 10-Oct-2020 09:16 _SCN6975.JPG
+X   4774 -rwxr-xr-x     0      0   7223992 10-Oct-2020 09:16 _SCN6976.JPG
+X   5656 -rwxr-xr-x     0      0   6899579 10-Oct-2020 09:22 _SCN6977.JPG
+X   6499 -rwxr-xr-x     0      0   6960154 10-Oct-2020 09:34 _SCN6978.JPG
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 _SCN6979.JPG
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 _SCN6980.JPG
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 _SCN6981.JPG
+X   9921 -rwxr-xr-x     0      0   6584909 10-Oct-2020 09:36 _SCN6982.JPG
+X  10725 -rwxr-xr-x     0      0   6398440 10-Oct-2020 09:36 _SCN6983.JPG
+X  11507 -rwxr-xr-x     0      0   6808311 10-Oct-2020 09:37 _SCN6984.JPG
+X  12339 -rwxr-xr-x     0      0   7171663 10-Oct-2020 09:43 _SCN6985.JPG
+X  13215 -rwxr-xr-x     0      0   7055281 10-Oct-2020 09:45 _SCN6986.JPG
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 _SCN6987.JPG
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 _SCN6988.JPG
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 _SCN6989.JPG
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 _SCN6990.JPG
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 _SCN6991.JPG
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 _SCN6992.JPG
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 _SCN6993.JPG
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 _SCN6994.JPG
+X  20369 -rwxr-xr-x     0      0   6209344 10-Oct-2020 09:59 _SCN6995.JPG
+X  21127 -rwxr-xr-x     0      0   6462866 10-Oct-2020 10:07 _SCN6996.JPG
+X  21916 -rwxr-xr-x     0      0   6806962 10-Oct-2020 10:08 _SCN6997.JPG
+X  22747 -rwxr-xr-x     0      0   6829860 10-Oct-2020 10:09 _SCN6998.JPG
+X  23581 -rwxr-xr-x     0      0   6910768 10-Oct-2020 10:09 _SCN6999.JPG
+X  24425 -rwxr-xr-x     0      0   7253771 10-Oct-2020 10:14 _SCN7000.JPG
+X  25311 -rwxr-xr-x     0      0   6214723 10-Oct-2020 10:15 _SCN7001.JPG
+X  26070 -rwxr-xr-x     0      0   6949360 10-Oct-2020 10:17 _SCN7002.JPG
+X  26919 -rwxr-xr-x     0      0   7179190 10-Oct-2020 10:24 _SCN7003.JPG
+X  27796 -rwxr-xr-x     0      0   6891994 10-Oct-2020 10:24 _SCN7004.JPG
+X  28638 -rwxr-xr-x     0      0   6927852 10-Oct-2020 10:25 _SCN7005.JPG
+X  29484 -rwxr-xr-x     0      0   7194125 10-Oct-2020 10:28 _SCN7006.JPG
+X  30363 -rwxr-xr-x     0      0   6646651 10-Oct-2020 10:29 _SCN7007.JPG
+X  31175 -rwxr-xr-x     0      0   6682392 10-Oct-2020 10:32 _SCN7008.JPG
+X  31991 -rwxr-xr-x     0      0   6801623 10-Oct-2020 10:37 _SCN7009.JPG
+X  32822 -rwxr-xr-x     0      0   7017478 10-Oct-2020 10:37 _SCN7010.JPG
+X  65538 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 DSCN6979.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6979.JPG~RFc426e7a.TMP
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 DSCN6979.JPG~RFc426e7a.TMP
+X      2 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 _SCN6979.JPG
+X  66364 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 DSCN6980.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6980.JPG~RFc42800e.TMP
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 DSCN6980.JPG~RFc42800e.TMP
+X    828 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 _SCN6980.JPG
+X  67226 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 DSCN6981.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6981.JPG~RFc428d5c.TMP
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 DSCN6981.JPG~RFc428d5c.TMP
+X   1690 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 _SCN6981.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432602.TMP
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 DSCN6987.JPG~RFc432602.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X   1546 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  68110 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X   2574 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 DSCN6988.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6988.JPG~RFc4429b6.TMP
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 DSCN6988.JPG~RFc4429b6.TMP
+X    828 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 _SCN6988.JPG
+X  66663 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 DSCN6989.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6989.JPG~RFc4484c7.TMP
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 DSCN6989.JPG~RFc4484c7.TMP
+X   1127 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 _SCN6989.JPG
+X  68386 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 DSCN6990.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6990.JPG~RFc451b5a.TMP
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 DSCN6990.JPG~RFc451b5a.TMP
+X   2850 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 _SCN6990.JPG
+X  68612 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 DSCN6991.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6991.JPG~RFc4574a5.TMP
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 DSCN6991.JPG~RFc4574a5.TMP
+X   3076 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 _SCN6991.JPG
+X  68612 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 DSCN6992.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6992.JPG~RFc45ec94.TMP
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 DSCN6992.JPG~RFc45ec94.TMP
+X   3076 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 _SCN6992.JPG
+X  68956 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 DSCN6993.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6993.JPG~RFc463f87.TMP
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 DSCN6993.JPG~RFc463f87.TMP
+X   3420 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 _SCN6993.JPG
+X  69261 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 DSCN6994.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:26 DSCN6994.JPG~RFc46a71a.TMP
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 DSCN6994.JPG~RFc46a71a.TMP
+X   3725 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 _SCN6994.JPG
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6970.JPG first_cluster=16 (32992) size=5017310
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6971.JPG first_cluster=629 (42800) size=6759135
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6971.JPG first_cluster=629 (42800) size=6759135
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6972.JPG first_cluster=1455 (56016) size=5718662
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6973.JPG first_cluster=2154 (67200) size=7321036
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6974.JPG first_cluster=3048 (81504) size=6990463
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6975.JPG first_cluster=3902 (95168) size=7140898
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6976.JPG first_cluster=4774 (109120) size=7223992
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6977.JPG first_cluster=5656 (123232) size=6899579
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6977.JPG first_cluster=5656 (123232) size=6899579
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6977.JPG first_cluster=5656 (123232) size=6899579
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6977.JPG first_cluster=5656 (123232) size=6899579
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6977.JPG first_cluster=5656 (123232) size=6899579
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6977.JPG first_cluster=5656 (123232) size=6899579
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6977.JPG first_cluster=5656 (123232) size=6899579
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6978.JPG first_cluster=6499 (136720) size=6960154
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7010.JPG first_cluster=32822 (557888) size=7017478
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7010.JPG first_cluster=32822 (557888) size=7017478
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6970.JPG first_cluster=16 (32992) size=5017310
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6971.JPG first_cluster=629 (42800) size=6759135
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6972.JPG first_cluster=1455 (56016) size=5718662
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6973.JPG first_cluster=2154 (67200) size=7321036
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6974.JPG first_cluster=3048 (81504) size=6990463
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6975.JPG first_cluster=3902 (95168) size=7140898
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6976.JPG first_cluster=4774 (109120) size=7223992
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6977.JPG first_cluster=5656 (123232) size=6899579
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6978.JPG first_cluster=6499 (136720) size=6960154
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6979.JPG first_cluster=7349 (150320) size=6760319
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6980.JPG first_cluster=8175 (163536) size=7055675
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6981.JPG first_cluster=9037 (177328) size=7240509
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6982.JPG first_cluster=9921 (191472) size=6584909
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6983.JPG first_cluster=10725 (204336) size=6398440
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6984.JPG first_cluster=11507 (216848) size=6808311
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6985.JPG first_cluster=12339 (230160) size=7171663
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6986.JPG first_cluster=13215 (244176) size=7055281
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6987.JPG first_cluster=14077 (257968) size=5874187
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6988.JPG first_cluster=14795 (269456) size=6125544
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6989.JPG first_cluster=15543 (281424) size=6501953
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6990.JPG first_cluster=16337 (294128) size=6325095
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6991.JPG first_cluster=17110 (306496) size=7196157
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6992.JPG first_cluster=17989 (320560) size=6900556
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6993.JPG first_cluster=18832 (334048) size=6329926
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6994.JPG first_cluster=19605 (346416) size=6253539
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6995.JPG first_cluster=20369 (358640) size=6209344
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6996.JPG first_cluster=21127 (370768) size=6462866
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6997.JPG first_cluster=21916 (383392) size=6806962
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6998.JPG first_cluster=22747 (396688) size=6829860
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6999.JPG first_cluster=23581 (410032) size=6910768
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7000.JPG first_cluster=24425 (423536) size=7253771
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7001.JPG first_cluster=25311 (437712) size=6214723
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7002.JPG first_cluster=26070 (449856) size=6949360
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7003.JPG first_cluster=26919 (463440) size=7179190
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7004.JPG first_cluster=27796 (477472) size=6891994
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7005.JPG first_cluster=28638 (490944) size=6927852
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7006.JPG first_cluster=29484 (504480) size=7194125
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7007.JPG first_cluster=30363 (518544) size=6646651
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7008.JPG first_cluster=31175 (531536) size=6682392
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7009.JPG first_cluster=31991 (544592) size=6801623
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7010.JPG first_cluster=32822 (557888) size=7017478
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=2(0x2), pos=34816
+Directory /
+       3 drwxr-xr-x     0      0         0 21-Nov-2016 16:11 System Volume Information
+       6 drwxr-xr-x     0      0         0 31-Dec-2010 23:00 CANON_SC
+       0 -rwxr-xr-x     0      0         0 21-Nov-2016 17:19 XX
+      13 -rwxr-xr-x     0      0       512 29-Sep-2020 23:02 NIKON001.DSC
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 DCIM
+
+TestDisk exited normally.
+
+
+Sun Oct 11 20:16:06 2020
+Command line: TestDisk
+
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 5.4.0-40-generic (#44-Ubuntu SMP Tue Jun 23 00:01:04 UTC 2020) x86_64
+Compiler: GCC 9.2
+ext2fs lib: 1.45.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.1
+User is not root!
+Hard disk list
+
+
+TestDisk exited normally.
+Using locale 'en_GB.UTF-8'.
+
+
+Sun Oct 11 20:16:14 2020
+Command line: TestDisk /debug
+
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 5.4.0-40-generic (#44-Ubuntu SMP Tue Jun 23 00:01:04 UTC 2020) x86_64
+Compiler: GCC 9.2
+ext2fs lib: 1.45.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.1
+/dev/sda: LBA, HPA, LBA48 support
+/dev/sda: size       468862128 sectors
+/dev/sda: user_max   468862128 sectors
+/dev/sda: native_max 468862128 sectors
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop0 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop1 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop2 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop3 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop4 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop5 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop6 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop7 - 0 B - 0 sectors, sector size=512
+Hard disk list
+Disk /dev/sda - 240 GB / 223 GiB - CHS 29185 255 63, sector size=512 - CT240BX500SSD1, S/N:1936E1984E22, FW:M6CR013
+Disk /dev/sdb - 16 GB / 15 GiB - CHS 15389 64 32, sector size=512 - Generic USB  SD Reader, FW:1.00
+
+Partition table type (auto): Intel
+Disk /dev/sdb - 16 GB / 15 GiB - Generic USB  SD Reader
+Partition table type: Intel
+
+Interface Advanced
+Geometry from i386 MBR: head=255 sector=63
+BAD_RS LBA=2048 1056
+FAT32 at 1/0/1
+Info: size boot_sector 31514624, partition 31514624
+FAT1 : 2022-17394
+FAT2 : 17395-32767
+start_rootdir : 32768 root cluster : 2
+Data : 32768-31514623
+sectors : 31514624
+cluster_size : 16
+no_of_cluster : 1967616 (2 - 1967617)
+fat_length 15373 calculated 15373
+heads/cylinder 255 (FAT) != 64 (HD)
+sect/track 63 (FAT) != 32 (HD)
+get_geometry_from_list_part_aux head=64 nbr=2
+get_geometry_from_list_part_aux head=8 nbr=2
+get_geometry_from_list_part_aux head=16 nbr=2
+get_geometry_from_list_part_aux head=32 nbr=2
+get_geometry_from_list_part_aux head=64 nbr=2
+ 1 * FAT32 LBA                1   0  1 15388  63 32   31514624 [RECOVERY]
+     FAT32, blocksize=8192, 16 GB / 15 GiB
+
+fat32_boot_sector
+ 1 * FAT32 LBA                1   0  1 15388  63 32   31514624 [RECOVERY]
+     FAT32, blocksize=8192, 16 GB / 15 GiB
+FAT32 at 1/0/1
+Info: size boot_sector 31514624, partition 31514624
+FAT1 : 2022-17394
+FAT2 : 17395-32767
+start_rootdir : 32768 root cluster : 2
+Data : 32768-31514623
+sectors : 31514624
+cluster_size : 16
+no_of_cluster : 1967616 (2 - 1967617)
+fat_length 15373 calculated 15373
+heads/cylinder 255 (FAT) != 64 (HD)
+sect/track 63 (FAT) != 32 (HD)
+FAT32 at 1/0/1
+Info: size boot_sector 31514624, partition 31514624
+FAT1 : 2022-17394
+FAT2 : 17395-32767
+start_rootdir : 32768 root cluster : 2
+Data : 32768-31514623
+sectors : 31514624
+cluster_size : 16
+no_of_cluster : 1967616 (2 - 1967617)
+fat_length 15373 calculated 15373
+heads/cylinder 255 (FAT) != 64 (HD)
+sect/track 63 (FAT) != 32 (HD)
+Boot sector
+Warning: number of heads/cylinder mismatches 255 (FAT) != 64 (HD)
+Warning: number of sectors per track mismatches 63 (FAT) != 32 (HD)
+OK
+
+Backup boot sector
+Warning: number of heads/cylinder mismatches 255 (FAT) != 64 (HD)
+Warning: number of sectors per track mismatches 63 (FAT) != 32 (HD)
+OK
+
+Sectors are identical.
+
+A valid FAT Boot sector must be present in order to access
+any data; even if the partition is not bootable.
+
+FAT: cluster=2(0x2), pos=34816
+Directory /
+       3 drwxr-xr-x     0      0         0 21-Nov-2016 16:11 System Volume Information
+       6 drwxr-xr-x     0      0         0 31-Dec-2010 23:00 CANON_SC
+       0 -rwxr-xr-x     0      0         0 21-Nov-2016 17:19 XX
+      13 -rwxr-xr-x     0      0       512 29-Sep-2020 23:02 NIKON001.DSC
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 DCIM
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=15(0xf), pos=35024
+Directory /DCIM/100NIKON
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+X     16 -rwxr-xr-x     0      0   5017310 29-Sep-2020 23:02 _SCN6970.JPG
+X    629 -rwxr-xr-x     0      0   6759135 10-Oct-2020 09:09 _SCN6971.JPG
+X   1455 -rwxr-xr-x     0      0   5718662 10-Oct-2020 09:11 _SCN6972.JPG
+X   2154 -rwxr-xr-x     0      0   7321036 10-Oct-2020 09:11 _SCN6973.JPG
+X   3048 -rwxr-xr-x     0      0   6990463 10-Oct-2020 09:16 _SCN6974.JPG
+X   3902 -rwxr-xr-x     0      0   7140898 10-Oct-2020 09:16 _SCN6975.JPG
+X   4774 -rwxr-xr-x     0      0   7223992 10-Oct-2020 09:16 _SCN6976.JPG
+X   5656 -rwxr-xr-x     0      0   6899579 10-Oct-2020 09:22 _SCN6977.JPG
+X   6499 -rwxr-xr-x     0      0   6960154 10-Oct-2020 09:34 _SCN6978.JPG
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 _SCN6979.JPG
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 _SCN6980.JPG
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 _SCN6981.JPG
+X   9921 -rwxr-xr-x     0      0   6584909 10-Oct-2020 09:36 _SCN6982.JPG
+X  10725 -rwxr-xr-x     0      0   6398440 10-Oct-2020 09:36 _SCN6983.JPG
+X  11507 -rwxr-xr-x     0      0   6808311 10-Oct-2020 09:37 _SCN6984.JPG
+X  12339 -rwxr-xr-x     0      0   7171663 10-Oct-2020 09:43 _SCN6985.JPG
+X  13215 -rwxr-xr-x     0      0   7055281 10-Oct-2020 09:45 _SCN6986.JPG
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 _SCN6987.JPG
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 _SCN6988.JPG
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 _SCN6989.JPG
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 _SCN6990.JPG
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 _SCN6991.JPG
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 _SCN6992.JPG
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 _SCN6993.JPG
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 _SCN6994.JPG
+X  20369 -rwxr-xr-x     0      0   6209344 10-Oct-2020 09:59 _SCN6995.JPG
+X  21127 -rwxr-xr-x     0      0   6462866 10-Oct-2020 10:07 _SCN6996.JPG
+X  21916 -rwxr-xr-x     0      0   6806962 10-Oct-2020 10:08 _SCN6997.JPG
+X  22747 -rwxr-xr-x     0      0   6829860 10-Oct-2020 10:09 _SCN6998.JPG
+X  23581 -rwxr-xr-x     0      0   6910768 10-Oct-2020 10:09 _SCN6999.JPG
+X  24425 -rwxr-xr-x     0      0   7253771 10-Oct-2020 10:14 _SCN7000.JPG
+X  25311 -rwxr-xr-x     0      0   6214723 10-Oct-2020 10:15 _SCN7001.JPG
+X  26070 -rwxr-xr-x     0      0   6949360 10-Oct-2020 10:17 _SCN7002.JPG
+X  26919 -rwxr-xr-x     0      0   7179190 10-Oct-2020 10:24 _SCN7003.JPG
+X  27796 -rwxr-xr-x     0      0   6891994 10-Oct-2020 10:24 _SCN7004.JPG
+X  28638 -rwxr-xr-x     0      0   6927852 10-Oct-2020 10:25 _SCN7005.JPG
+X  29484 -rwxr-xr-x     0      0   7194125 10-Oct-2020 10:28 _SCN7006.JPG
+X  30363 -rwxr-xr-x     0      0   6646651 10-Oct-2020 10:29 _SCN7007.JPG
+X  31175 -rwxr-xr-x     0      0   6682392 10-Oct-2020 10:32 _SCN7008.JPG
+X  31991 -rwxr-xr-x     0      0   6801623 10-Oct-2020 10:37 _SCN7009.JPG
+X  32822 -rwxr-xr-x     0      0   7017478 10-Oct-2020 10:37 _SCN7010.JPG
+X  65538 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 DSCN6979.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6979.JPG~RFc426e7a.TMP
+X   7349 -rwxr-xr-x     0      0   6760319 10-Oct-2020 09:34 DSCN6979.JPG~RFc426e7a.TMP
+X      2 -rwxr-xr-x     0      0   6760319 11-Oct-2020 19:21 _SCN6979.JPG
+X  66364 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 DSCN6980.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6980.JPG~RFc42800e.TMP
+X   8175 -rwxr-xr-x     0      0   7055675 10-Oct-2020 09:35 DSCN6980.JPG~RFc42800e.TMP
+X    828 -rwxr-xr-x     0      0   7055675 11-Oct-2020 19:21 _SCN6980.JPG
+X  67226 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 DSCN6981.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:21 DSCN6981.JPG~RFc428d5c.TMP
+X   9037 -rwxr-xr-x     0      0   7240509 10-Oct-2020 09:35 DSCN6981.JPG~RFc428d5c.TMP
+X   1690 -rwxr-xr-x     0      0   7240509 11-Oct-2020 19:21 _SCN6981.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432602.TMP
+X  14077 -rwxr-xr-x     0      0   5874187 10-Oct-2020 09:45 DSCN6987.JPG~RFc432602.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc432c1c.TMP
+X  67082 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X   1546 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc433b7e.TMP
+X  66364 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 _SCN6987.JPG
+X  68110 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 DSCN6987.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X    828 -rwxr-xr-x     0      0   5874187 11-Oct-2020 19:22 DSCN6987.JPG~RFc43b0dd.TMP
+X   2574 -rwxr-xr-x     0      0   2254803 11-Oct-2020 19:22 _SCN6987.JPG
+X  66364 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 DSCN6988.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6988.JPG~RFc4429b6.TMP
+X  14795 -rwxr-xr-x     0      0   6125544 10-Oct-2020 09:46 DSCN6988.JPG~RFc4429b6.TMP
+X    828 -rwxr-xr-x     0      0   2446060 11-Oct-2020 19:23 _SCN6988.JPG
+X  66663 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 DSCN6989.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:23 DSCN6989.JPG~RFc4484c7.TMP
+X  15543 -rwxr-xr-x     0      0   6501953 10-Oct-2020 09:46 DSCN6989.JPG~RFc4484c7.TMP
+X   1127 -rwxr-xr-x     0      0   3310057 11-Oct-2020 19:23 _SCN6989.JPG
+X  68386 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 DSCN6990.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6990.JPG~RFc451b5a.TMP
+X  16337 -rwxr-xr-x     0      0   6325095 10-Oct-2020 09:47 DSCN6990.JPG~RFc451b5a.TMP
+X   2850 -rwxr-xr-x     0      0   1847151 11-Oct-2020 19:24 _SCN6990.JPG
+X  68612 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 DSCN6991.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:24 DSCN6991.JPG~RFc4574a5.TMP
+X  17110 -rwxr-xr-x     0      0   7196157 10-Oct-2020 09:55 DSCN6991.JPG~RFc4574a5.TMP
+X   3076 -rwxr-xr-x     0      0   3887773 11-Oct-2020 19:24 _SCN6991.JPG
+X  68612 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 DSCN6992.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6992.JPG~RFc45ec94.TMP
+X  17989 -rwxr-xr-x     0      0   6900556 10-Oct-2020 09:56 DSCN6992.JPG~RFc45ec94.TMP
+X   3076 -rwxr-xr-x     0      0   2811836 11-Oct-2020 19:25 _SCN6992.JPG
+X  68956 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 DSCN6993.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:25 DSCN6993.JPG~RFc463f87.TMP
+X  18832 -rwxr-xr-x     0      0   6329926 10-Oct-2020 09:56 DSCN6993.JPG~RFc463f87.TMP
+X   3420 -rwxr-xr-x     0      0   2494259 11-Oct-2020 19:25 _SCN6993.JPG
+X  69261 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 DSCN6994.JPG.~tmp
+X      0 -rwxr-xr-x     0      0         0 11-Oct-2020 19:26 DSCN6994.JPG~RFc46a71a.TMP
+X  19605 -rwxr-xr-x     0      0   6253539 10-Oct-2020 09:57 DSCN6994.JPG~RFc46a71a.TMP
+X   3725 -rwxr-xr-x     0      0   2485140 11-Oct-2020 19:26 _SCN6994.JPG
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6970.JPG first_cluster=16 (32992) size=5017310
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6971.JPG first_cluster=629 (42800) size=6759135
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6972.JPG first_cluster=1455 (56016) size=5718662
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6973.JPG first_cluster=2154 (67200) size=7321036
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6974.JPG first_cluster=3048 (81504) size=6990463
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6975.JPG first_cluster=3902 (95168) size=7140898
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6976.JPG first_cluster=4774 (109120) size=7223992
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6977.JPG first_cluster=5656 (123232) size=6899579
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6978.JPG first_cluster=6499 (136720) size=6960154
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6979.JPG first_cluster=7349 (150320) size=6760319
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6980.JPG first_cluster=8175 (163536) size=7055675
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6981.JPG first_cluster=9037 (177328) size=7240509
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6982.JPG first_cluster=9921 (191472) size=6584909
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6983.JPG first_cluster=10725 (204336) size=6398440
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6984.JPG first_cluster=11507 (216848) size=6808311
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6985.JPG first_cluster=12339 (230160) size=7171663
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6986.JPG first_cluster=13215 (244176) size=7055281
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6987.JPG first_cluster=14077 (257968) size=5874187
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6988.JPG first_cluster=14795 (269456) size=6125544
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6989.JPG first_cluster=15543 (281424) size=6501953
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6990.JPG first_cluster=16337 (294128) size=6325095
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6991.JPG first_cluster=17110 (306496) size=7196157
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6992.JPG first_cluster=17989 (320560) size=6900556
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6993.JPG first_cluster=18832 (334048) size=6329926
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6994.JPG first_cluster=19605 (346416) size=6253539
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6995.JPG first_cluster=20369 (358640) size=6209344
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6996.JPG first_cluster=21127 (370768) size=6462866
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6997.JPG first_cluster=21916 (383392) size=6806962
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6998.JPG first_cluster=22747 (396688) size=6829860
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN6999.JPG first_cluster=23581 (410032) size=6910768
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7000.JPG first_cluster=24425 (423536) size=7253771
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7001.JPG first_cluster=25311 (437712) size=6214723
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7002.JPG first_cluster=26070 (449856) size=6949360
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7003.JPG first_cluster=26919 (463440) size=7179190
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7004.JPG first_cluster=27796 (477472) size=6891994
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7005.JPG first_cluster=28638 (490944) size=6927852
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7006.JPG first_cluster=29484 (504480) size=7194125
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7007.JPG first_cluster=30363 (518544) size=6646651
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7008.JPG first_cluster=31175 (531536) size=6682392
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7009.JPG first_cluster=31991 (544592) size=6801623
+fat_copy dst=/home/david/Menu/DCIM/100NIKON/_SCN7010.JPG first_cluster=32822 (557888) size=7017478
+FAT: cluster=14(0xe), pos=35008
+Directory /DCIM
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 .
+       0 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 ..
+      15 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 100NIKON
+FAT: cluster=2(0x2), pos=34816
+Directory /
+       3 drwxr-xr-x     0      0         0 21-Nov-2016 16:11 System Volume Information
+       6 drwxr-xr-x     0      0         0 31-Dec-2010 23:00 CANON_SC
+       0 -rwxr-xr-x     0      0         0 21-Nov-2016 17:19 XX
+      13 -rwxr-xr-x     0      0       512 29-Sep-2020 23:02 NIKON001.DSC
+      14 drwxr-xr-x     0      0         0 29-Sep-2020 23:02 DCIM
+
+TestDisk exited normally.
