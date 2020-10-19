@@ -155,13 +155,13 @@ class Example(wx.Frame):
         self.hboxBottem.AddSpacer(20)
         self.hboxBottem.Add(self.ingredientBox, 1, wx.EXPAND, border=5)
         self.hboxBottem.AddSpacer(20)
-        self.hboxBottem.Add(self.nextIngredent, 0, wx.RESERVE_SPACE_EVEN_IF_HIDDEN)
-        self.hboxBottem.AddSpacer(20)
         self.hboxBottem.Add(self.previousIngredent, 0, wx.RESERVE_SPACE_EVEN_IF_HIDDEN)
         self.hboxBottem.AddSpacer(20)
-        self.hboxBottem.Add(self.increaseStock, 0, border=5)
+        self.hboxBottem.Add(self.nextIngredent, 0, wx.RESERVE_SPACE_EVEN_IF_HIDDEN)
         self.hboxBottem.AddSpacer(20)
-        self.hboxBottem.Add(self.decreaseStock, 0, border=5)
+        self.hboxBottem.Add(self.increaseStock, 0, wx.RESERVE_SPACE_EVEN_IF_HIDDEN, border=5)
+        self.hboxBottem.AddSpacer(20)
+        self.hboxBottem.Add(self.decreaseStock, 0, wx.RESERVE_SPACE_EVEN_IF_HIDDEN, border=5)
         self.hboxBottem.AddSpacer(20)
 
         self.vbox.AddSpacer(20)
@@ -214,7 +214,6 @@ class Example(wx.Frame):
     def getRandomCat(self):
 
         numberCats = len(self.allCatsList)
-        print(numberCats)
         random.seed()
         thisCat = self.allCatsList[random.randrange(numberCats)]
 
@@ -226,7 +225,6 @@ class Example(wx.Frame):
         readIn(self.Ingredience, self.IngredienceDict, self.IngredianceFileName)
 
     def nextIngredentCallback(self, event):
-        print(self.Ingredience)
         self.IngrediencePointer = min(self.IngrediencePointer + 1, len(self.Ingredience) - 1)
 
         if self.IngrediencePointer == len(self.Ingredience) - 1:
@@ -235,8 +233,14 @@ class Example(wx.Frame):
             self.previousIngredent.Show()
 
         self.ingredientBox.Clear()
-        print(self.IngrediencePointer)
-        self.ingredientBox.AppendText(self.Ingredience[self.IngrediencePointer].rstrip())
+        thisIncredientText = self.Ingredience[self.IngrediencePointer].rstrip()
+        self.ingredientBox.AppendText(thisIncredientText)
+
+        if int(thisIncredientText.split(" ")[1]) <= 0:
+            self.decreaseStock.Hide()
+        else:
+            self.decreaseStock.Show()
+
 
     def previousIngredentCallback(self, event):
         self.IngrediencePointer = max(self.IngrediencePointer - 1, 0)
@@ -258,16 +262,22 @@ class Example(wx.Frame):
         self.ingredientBox.Clear()
         self.ingredientBox.AppendText(text)
         self.Ingredience[self.IngrediencePointer] = info[0] + " " + str(number) + " " + str(minStock)
+        self.refreshShoppingList()
+        if number <= 0:
+            self.decreaseStock.Hide()
+
 
     def IncreaseStockCallback(self, event):
         info = self.ingredientBox.GetValue().split()
         number = max(int(info[1]) + 1, 0)
         minStock = int(info[2])
-        print(minStock)
         text = info[0] + " " + str(number) + " " + str(minStock)
         self.ingredientBox.Clear()
         self.ingredientBox.AppendText(text)
         self.Ingredience[self.IngrediencePointer] = info[0] + " " + str(number) + " " + str(minStock)
+        self.refreshShoppingList()
+        if number > 0:
+            self.decreaseStock.Show()
 
     def saveIngredience(self):
         ingredianceFile = open(self.IngredianceFileName, 'w')
@@ -447,7 +457,6 @@ class suggestMealWindow(wx.Frame):
         self.hbox.AddSpacer(20)
         self.hbox.Add(self.vbox)
         self.hbox.AddSpacer(20)
-
         self.panel.SetSizer(self.hbox)
 
 
