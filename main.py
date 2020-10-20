@@ -17,8 +17,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 # import socket
 
-# emailAddresses = ["david.p.greenaway@gmail.com", "nauntonpark@hotmail.com"]
-emailAddresses = ["david.p.greenaway@gmail.com"]
+emailAddresses = ["david.p.greenaway@gmail.com", "nauntonpark@hotmail.com"]
+# emailAddresses = ["david.p.greenaway@gmail.com"]
 
 
 def sendMail(msgtext, toaddr, subject='shopping list'):
@@ -334,8 +334,10 @@ class Example(wx.Frame):
 
             # add ingredient back into stock
             ingredientIndex = self.IngredienceDict[item]
-            number1 = int(self.Ingredience[ingredientIndex].split(" ")[1])
-            self.Ingredience[ingredientIndex] = item + " " + str(number+number1)
+            ingredientDetail = self.Ingredience[ingredientIndex].split(" ")
+            number1 = int(ingredientDetail[1])
+            minstock = ingredientDetail[2]
+            self.Ingredience[ingredientIndex] = item + " " + str(number+number1) + " " + minstock
 
         self.refreshShoppingList()
         self.mealWindow.Show()
@@ -409,10 +411,11 @@ class Example(wx.Frame):
             number = int(ingredientDetail[0])
             item = ingredientDetail[1]
             ingredientAddress = self.IngredienceDict[item]
-
-            stock = int(self.Ingredience[ingredientAddress].split(" ")[1])
+            ingredientDetail = self.Ingredience[ingredientAddress].split(" ")
+            stock = int(ingredientDetail[1])
+            minstock = ingredientDetail[2]
             stock = stock - number
-            self.Ingredience[ingredientAddress] = item + " " + str(stock)
+            self.Ingredience[ingredientAddress] = item + " " + str(stock) + " " + minstock
 
         self.refreshShoppingList()
 
