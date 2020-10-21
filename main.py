@@ -85,7 +85,7 @@ class Example(wx.Frame):
     dishes = []
 
     def __init__(self, parent, title):
-        super(Example, self).__init__(parent, title=title, size=(600, 400))
+        super(Example, self).__init__(parent, title=title, size=(600, 800))
 
         fileStem = "None"
         if platform.system() == "Linux":
@@ -124,27 +124,29 @@ class Example(wx.Frame):
         self.hboxMiddle: wx.BoxSizer
         self.hboxBottem: wx.BoxSizer
 
-        self.vboxTop.Add(self.menuSuggestButton, 1, border=5)
+        self.vboxTop.Add(self.menuSuggestButton, 0, border=5)
         self.vboxTop.AddSpacer(10)
-        self.vboxTop.Add(self.menuAddButton, 1, border=5)
+        self.vboxTop.Add(self.menuAddButton, 0, border=5)
         self.vboxTop.AddSpacer(10)
-        self.vboxTop.Add(self.menuReplaceButton, 1, border=5)
+        self.vboxTop.Add(self.menuReplaceButton, 0, border=5)
         self.vboxTop.AddSpacer(10)
-        self.vboxTop.Add(self.menuPrintButton, 1, border=5)
+        self.vboxTop.Add(self.menuPrintButton, 0, border=5)
         self.vboxTop.AddSpacer(10)
-        self.vboxTop.Add(self.menuEmailButton, 1, border=5)
+        self.vboxTop.Add(self.menuEmailButton, 0, border=5)
+
+        self.shoppinglistBox = wx.ListBox(self.panel, style=wx.ALIGN_LEFT)
 
         self.hboxTop.AddSpacer(20)
         self.hboxTop.Add(self.menuBox, 1, wx.EXPAND, border=5)
         self.hboxTop.AddSpacer(20)
-        self.hboxTop.Add(self.vboxTop, 0, border=5)
+        self.hboxTop.Add(self.shoppinglistBox, 1, wx.EXPAND, border=5)
+        self.hboxTop.AddSpacer(20)
+        self.hboxTop.Add(self.vboxTop, 0, wx.EXPAND, border=5)
         self.hboxTop.AddSpacer(20)
 
-        self.shoppinglistBox = wx.ListBox(self.panel, style=wx.ALIGN_LEFT)
-
-        self.hboxMiddle.AddSpacer(20)
-        self.hboxMiddle.Add(self.shoppinglistBox, 1, wx.EXPAND, border=5)
-        self.hboxMiddle.AddSpacer(20)
+        # self.hboxMiddle.AddSpacer(20)
+        # self.hboxMiddle.Add(self.shoppinglistBox, 1, wx.EXPAND, border=5)
+        # self.hboxMiddle.AddSpacer(20)
 
         self.ingredientBox = wx.TextCtrl(self.panel, style=wx.ALIGN_LEFT, size=(340, 30))
         self.nextIngredent = wx.Button(self.panel, label=">", style=wx.ALIGN_RIGHT, size=(30, 30))
@@ -167,8 +169,8 @@ class Example(wx.Frame):
         self.vbox.AddSpacer(20)
         self.vbox.Add(self.hboxTop, 1, wx.EXPAND | wx.ALIGN_TOP)
         self.vbox.AddSpacer(20)
-        self.vbox.Add(self.hboxMiddle, 1, wx.EXPAND)
-        self.vbox.AddSpacer(20)
+        # self.vbox.Add(self.hboxMiddle, 1, wx.EXPAND)
+        # self.vbox.AddSpacer(20)
         self.vbox.Add(self.hboxBottem, 0)
         self.vbox.AddSpacer(20)
 
@@ -196,8 +198,17 @@ class Example(wx.Frame):
         self.readInData()
 
         # initialize menu window
+        now = datetime.today()
+        thisDateString = now.strftime("%A %d. %B %Y")
+        pnt = 0
         for line in self.Menu:
             self.menuBox.Append(line)
+            thisDateString = line.split(" ")[1]
+            thisdate = datetime.strptime(thisDateString, "%d/%m/%Y")
+            if thisdate < now:
+                self.menuBox.SetSelection(pnt)
+                self.menuBox.SetFirstItem(pnt)
+            pnt += 1
 
         self.mealWindow = chooseMealWindow(None, title='meals')
         self.suggestMealWindow = suggestMealWindow(None, title="Suggest a Meal")
@@ -254,27 +265,27 @@ class Example(wx.Frame):
         self.ingredientBox.AppendText(self.Ingredience[self.IngrediencePointer].rstrip())
 
     def DecreaseStockCallback(self, event):
-        info = self.ingredientBox.GetValue().split()
-        number = max(int(info[1]) - 1, 0)
-        minStock = int(info[2])
+        ingredientDetail = self.ingredientBox.GetValue().split()
+        number = max(int(ingredientDetail[1]) - 1, 0)
+        minStock = ingredientDetail[2]
 
-        text = info[0] + " " + str(number) + " " + str(minStock)
+        text = ingredientDetail[0] + " " + str(number) + " " + minStock
         self.ingredientBox.Clear()
         self.ingredientBox.AppendText(text)
-        self.Ingredience[self.IngrediencePointer] = info[0] + " " + str(number) + " " + str(minStock)
+        self.Ingredience[self.IngrediencePointer] = ingredientDetail[0] + " " + str(number) + " " + minStock
         self.refreshShoppingList()
         if number <= 0:
             self.decreaseStock.Hide()
 
 
     def IncreaseStockCallback(self, event):
-        info = self.ingredientBox.GetValue().split()
-        number = max(int(info[1]) + 1, 0)
-        minStock = int(info[2])
-        text = info[0] + " " + str(number) + " " + str(minStock)
+        ingredianceDetail = self.ingredientBox.GetValue().split()
+        number = max(int(ingredianceDetail[1]) + 1, 0)
+        minStock = ingredianceDetail[2]
+        text = ingredianceDetail[0] + " " + str(number) + " " + str(minStock)
         self.ingredientBox.Clear()
         self.ingredientBox.AppendText(text)
-        self.Ingredience[self.IngrediencePointer] = info[0] + " " + str(number) + " " + str(minStock)
+        self.Ingredience[self.IngrediencePointer] = ingredianceDetail[0] + " " + str(number) + " " + minStock
         self.refreshShoppingList()
         if number > 0:
             self.decreaseStock.Show()
@@ -282,8 +293,8 @@ class Example(wx.Frame):
     def saveIngredience(self):
         ingredianceFile = open(self.IngredianceFileName, 'w')
         for item in self.IngredienceDict.items():
-            temp = (self.Ingredience[item[1]]).split(" ")
-            ingredianceFile.write(item[0] + " " + str(temp[1] + " " + str(temp[2]) + "\n"))
+            ingredianceDetail = (self.Ingredience[item[1]]).split(" ")
+            ingredianceFile.write(item[0] + " " + ingredianceDetail[1] + " " + ingredianceDetail[2] + "\n")
         ingredianceFile.close()
 
     def readMenu(self):
@@ -429,7 +440,7 @@ class Example(wx.Frame):
 #           if number < 0:
 #             self.shoppinglistBox.Append(ingredient+" "+str(-number))
             if number < minStock:
-                self.shoppinglistBox.Append(ingredient+" "+str(minStock-number))
+                self.shoppinglistBox.Append(ingredient+" "+str(minStock-number)+" ("+str(max(0, -number))+")")
 
 
     def writeALL(self, event):
