@@ -144,10 +144,6 @@ class Example(wx.Frame):
         self.hboxTop.Add(self.vboxTop, 0, wx.EXPAND, border=5)
         self.hboxTop.AddSpacer(20)
 
-        # self.hboxMiddle.AddSpacer(20)
-        # self.hboxMiddle.Add(self.shoppinglistBox, 1, wx.EXPAND, border=5)
-        # self.hboxMiddle.AddSpacer(20)
-
         self.ingredientBox = wx.TextCtrl(self.panel, style=wx.ALIGN_LEFT, size=(340, 30))
         self.nextIngredent = wx.Button(self.panel, label=">", style=wx.ALIGN_RIGHT, size=(30, 30))
         self.previousIngredent = wx.Button(self.panel, label="<", style=wx.ALIGN_RIGHT, size=(30, 30))
@@ -382,6 +378,8 @@ class Example(wx.Frame):
         for line in self.Menu:
             thisdateString = line.split(" ")[1]
             thisdate = datetime.strptime(thisdateString, "%d/%m/%Y")
+            print(thisdate)
+            print(yesterday)
             if yesterday < thisdate:
                 tempfile.write("            " + line + "\n\n")
         tempfile.write("\n\n\n            xxxx\n\n\n" + self.getRandomCat)
@@ -398,7 +396,7 @@ class Example(wx.Frame):
             number = int(itemSplit[1])
             minStock = int(itemSplit[2])
             if number < minStock:
-                menuText += ingredient+" "+str(minStock-number)+"\n"
+                menuText += ingredient+" "+str(minStock-number)+" ("+str(-number)+")"+"\n"
             number += 1
 
         thisCat = self.getRandomCat
@@ -449,8 +447,6 @@ class Example(wx.Frame):
         self.mealWindow.Destroy()
         self.Destroy()
         exit(0)
-
-
 
 
 class suggestMealWindow(wx.Frame):
