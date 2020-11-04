@@ -375,17 +375,18 @@ class Example(wx.Frame):
         tempfile.write("            " + "Menu at " + now.strftime("%A %d. %B %Y") + "\n\n\n\n")
 
         yesterday = now - timedelta(days=1)
-        for line in self.Menu:
-            thisdateString = line.split(" ")[1]
+        for index in range(self.menuBox.GetCount()):
+            line = self.menuBox.GetString(index)
+            thisdateString = (line.split(" "))[1]
             thisdate = datetime.strptime(thisdateString, "%d/%m/%Y")
-            print(thisdate)
-            print(yesterday)
+            #print(thisdate)
+            #print(yesterday)
             if yesterday < thisdate:
                 tempfile.write("            " + line + "\n\n")
         tempfile.write("\n\n\n            xxxx\n\n\n" + self.getRandomCat)
 
         tempfile.close()
-        os.system("lpr " + self.TempFileName)
+        #os.system("lpr " + self.TempFileName)
 
     def menuEmailEvent(self, event):
         menuText = "\nShopping List\n------------------\n\n"
