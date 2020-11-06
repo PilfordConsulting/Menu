@@ -386,7 +386,7 @@ class Example(wx.Frame):
         tempfile.write("\n\n\n            xxxx\n\n\n" + self.getRandomCat)
 
         tempfile.close()
-        #os.system("lpr " + self.TempFileName)
+        os.system("lpr " + self.TempFileName)
 
     def menuEmailEvent(self, event):
         menuText = "\nShopping List\n------------------\n\n"
