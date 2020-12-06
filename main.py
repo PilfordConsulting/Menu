@@ -18,10 +18,11 @@ from email.mime.multipart import MIMEMultipart
 # import socket
 
 emailAddresses = ["david.p.greenaway@gmail.com", "nauntonpark@hotmail.com"]
-# emailAddresses = ["david.p.greenaway@gmail.com"]
+#emailAddresses = ["david.p.greenaway@gmail.com"]
 
 
 def sendMail(msgtext, toaddr, subject='shopping list'):
+    print("got here")
     fromaddr = 'mypiebox@gmail.com'
     msg = MIMEMultipart('alternative')
     msg['Subject'] = subject
@@ -390,22 +391,28 @@ class Example(wx.Frame):
 
     def menuEmailEvent(self, event):
         menuText = "\nShopping List\n------------------\n\n"
-        number = 0
+        totalnumber = 0
         for item in self.Ingredience:
             itemSplit = item.split(" ")
             ingredient = itemSplit[0]
             number = int(itemSplit[1])
             minStock = int(itemSplit[2])
-            if number < minStock:
-                menuText += ingredient+" "+str(minStock-number)+" ("+str(-number)+")"+"\n"
-            number += 1
+            #if number < minStock:
+                # menuText += ingredient+" "+str(minStock-number)+" ("+str(max(-number, 0))+")"+"\n"
+            if number < 0:
+                menuText += ingredient + " " + str(max(-number, 0)) + "\n"
+
+            totalnumber += 1
 
         thisCat = self.getRandomCat
 
         menuText = menuText + thisCat + "\n\n\n"
 
-        if number > 0:
+        print (totalnumber)
+
+        if totalnumber > 0:
             for address in emailAddresses:
+                print(address)
                 sendMail(menuText, address)
 
     def recordMenuSelect(self):
