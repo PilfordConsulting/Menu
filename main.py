@@ -119,7 +119,7 @@ class Example(wx.Frame):
         self.menuReplaceButton = wx.Button(self.panel, id=wx.ID_ANY, label="Rpl", style=wx.ALIGN_RIGHT, size=(30, 30))
         self.menuPrintButton = wx.Button(self.panel, id=wx.ID_ANY, label="Pnt", style=wx.ALIGN_RIGHT, size=(30, 30))
         self.menuEmailButton = wx.Button(self.panel, id=wx.ID_ANY, label="Mail", style=wx.ALIGN_RIGHT, size=(30, 30))
-        self.menuDeleteButton = wx.Button(self.panel, id=wx.ID_ANY, label="Delete", style=wx.ALIGN_RIGHT, size=(30, 30))
+        self.menuDeleteButton = wx.Button(self.panel, id=wx.ID_ANY, label="Del", style=wx.ALIGN_RIGHT, size=(30, 30))
 
         self.menuBox: wx.ListBox
         self.hboxTop: wx.BoxSizer
@@ -462,7 +462,7 @@ class Example(wx.Frame):
     def writeALL(self, event):
         self.saveDishes()
         self.saveIngredience()
-        self.mealWindow.Destroy()
+        #self.mealWindow.Destroy()
         self.Destroy()
         exit(0)
 
@@ -524,6 +524,7 @@ class chooseMealWindow(wx.Frame):
         self.buttonNEXT.Bind(wx.EVT_BUTTON, self.nextDish)
         self.buttonPREVIOUS.Bind(wx.EVT_BUTTON, self.previousDish)
         self.buttonGO.Bind(wx.EVT_BUTTON, self.chooseDish)
+        self.recipieBox.Bind(wx.EVT_KEY_DOWN, self.enterText)
 
     def chooseDish(self, event):
         menuItem = self.recipieBox.GetValue()
@@ -550,6 +551,46 @@ class chooseMealWindow(wx.Frame):
         if self.index < len(mywin.Recipies) - 1:
             self.buttonNEXT.Show()
             self.hbox.Layout()
+
+    def enterText(self, event):
+        #key = event.GetString().upper()
+        keyNumber = event.GetKeyCode()
+        if keyNumber == 315:
+            self.index = max(self.index-1, 0)
+            dish = mywin.Recipies[self.index].split(" ")[0]
+        else:
+            if keyNumber == 317:
+                self.index = min(self.index+1, len(mywin.Recipies) - 1)
+                dish = mywin.Recipies[self.index].split(" ")[0]
+            else:
+                key = chr(event.GetKeyCode())
+                self.index = 0
+                while True:
+                    dish = mywin.Recipies[self.index].split(" ")[0]
+                    if dish > key:
+                        break
+                    if self.index == len(mywin.Recipies) - 1:
+                        break
+                    self.index += 1
+
+        self.recipieBox.ChangeValue(dish)
+        if self.index < 1:
+            self.buttonPREVIOUS.Hide()
+        else:
+            self.buttonPREVIOUS.Show()
+
+        if self.index == len(mywin.Recipies) - 1:
+            self.buttonNEXT.Hide()
+        else:
+            self.buttonNEXT.Show()
+
+        self.hbox.Layout()
+
+
+
+
+
+
 
 
 app = wx.App()
