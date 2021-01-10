@@ -553,8 +553,13 @@ class chooseMealWindow(wx.Frame):
             self.hbox.Layout()
 
     def enterText(self, event):
-        #key = event.GetString().upper()
         keyNumber = event.GetKeyCode()
+
+        #print (keyNumber)
+        if keyNumber == 13:
+            self.chooseDish(event)
+            return
+
         if keyNumber == 315:
             self.index = max(self.index-1, 0)
             dish = mywin.Recipies[self.index].split(" ")[0]
