@@ -2,6 +2,7 @@ Aubergine_Tufu 1*Tufu 1*Pepper 1*Aubergine
 Avercardo_Rice 2*Avercardo 1*Hallumi 1*Tomato 1*Chickpeas 1*Lemmon
 Baked_Potates 1*Tuna 1*Hummus 3*Potatoes
 Burgers 1*BurgerBun 1*GFBurgerBun 1*MeatBurger 1*VegiBurger 1*Pepper 1*Dips 1*Chips
+CarrotByriani 1*Carrots 1*Onion 1*Peas 1*Cashews 
 CheesyBake 1*Spinage 1*NewPotatoes 1*Leak
 Chips 1*Fishcake
 Egg_and_Chips 1*Chips 1*VegiSausages 1*MeatSausages 1*Beans 3*Eggs
@@ -17,9 +18,10 @@ Pizza 1*GF_PizzaBase 2*Pepper 1*Mozzerella 1*Spinage 3*CanedToms
 Rissoto 1*Risoto_Rice 1*Goats_Cheese 1*ArtichokeHearts
 Roast 1*Turkey 1*NutRoast 4*Potatoes 1*Peas
 Roast_Veg 1*Chickpeas 1*Courgette 1*Tomato 1*Hallumi 2*Pepper
+Sag_Pannier 1*2l_WholeMilk 1*Spinage 1*Yogart 
 Saussage_and_Mash 1*VegiSausages 1*MeatSausages 3*Potatoes 1*Peas
 SpagBog 1*Pepper 1*GFSpag 1*Tagliatelle 1*QuornMince 1*Spinage
-Spicy_Rice 1*Chickpeas 1*Spinage
+Spicy_Rice 1*Chickpeas 1*Spinage 1*Cashews
 Stir_Fri 1*QuornPieces 1*Pepper 1*StirFriSause 1*StirFriVeg
 Stuffed_Peppers 2*Pepper 1*MexicanRice 1*BlackBeans 1*Leak 1*Natchos 
 Tagine 2*Pepper 1*QuornPieces 1*Aubergine

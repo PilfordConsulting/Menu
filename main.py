@@ -30,7 +30,7 @@ def sendMail(msgtext, toaddr, subject='shopping list'):
     msg['To'] = toaddr
 
     username = 'mypiebox@gmail.com'
-    password = 'IafBcsBrsMor1'
+    password = '!jD9*7<mn*w"lD8w'
 
     html = '<html><head>\n</head>\n<body><font face="Courier ">\n<pre>' + msgtext + "\n\n\nxxxx\n"\
            "\n</pre>\n</font>\n</body>\n</html>"
