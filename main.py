@@ -18,11 +18,13 @@ from email.mime.multipart import MIMEMultipart
 # import socket
 
 emailAddresses = ["david.p.greenaway@gmail.com", "nauntonpark@hotmail.com"]
+
+AllFlag = False
+
 #emailAddresses = ["david.p.greenaway@gmail.com"]
 
-
 def sendMail(msgtext, toaddr, subject='shopping list'):
-    print("got here")
+    #print("got here")
     fromaddr = 'mypiebox@gmail.com'
     msg = MIMEMultipart('alternative')
     msg['Subject'] = subject
@@ -30,7 +32,8 @@ def sendMail(msgtext, toaddr, subject='shopping list'):
     msg['To'] = toaddr
 
     username = 'mypiebox@gmail.com'
-    password = '!jD9*7<mn*w"lD8w'
+    #password = '!jD9*7<mn*w"lD8w'
+    password = "qlzffncdtkwjylor"
 
     html = '<html><head>\n</head>\n<body><font face="Courier ">\n<pre>' + msgtext + "\n\n\nxxxx\n"\
            "\n</pre>\n</font>\n</body>\n</html>"
@@ -73,7 +76,7 @@ class Example(wx.Frame):
     TempFileName = "temp"
     CatFileName = "cat"
 
-    # in core storage for data file
+    # in core storage for data files
     Menu = []
     Ingredience = []
     Recipies = []
@@ -89,6 +92,8 @@ class Example(wx.Frame):
         super(Example, self).__init__(parent, title=title, size=(600, 800))
 
         fileStem = "None"
+
+
         if platform.system() == "Linux":
             fileStem = "/home/david/PycharmProjects/FoodDB/"
         if platform.system() == "Windows":
@@ -120,6 +125,7 @@ class Example(wx.Frame):
         self.menuPrintButton = wx.Button(self.panel, id=wx.ID_ANY, label="Pnt", style=wx.ALIGN_RIGHT, size=(30, 30))
         self.menuEmailButton = wx.Button(self.panel, id=wx.ID_ANY, label="Mail", style=wx.ALIGN_RIGHT, size=(30, 30))
         self.menuDeleteButton = wx.Button(self.panel, id=wx.ID_ANY, label="Del", style=wx.ALIGN_RIGHT, size=(30, 30))
+        self.menuAllButton = wx.Button(self.panel, id=wx.ID_ANY, label="All", style=wx.ALIGN_RIGHT, size=(30, 30))
 
         self.menuBox: wx.ListBox
         self.hboxTop: wx.BoxSizer
@@ -136,6 +142,8 @@ class Example(wx.Frame):
         self.vboxTop.AddSpacer(10)
         self.vboxTop.Add(self.menuEmailButton, 0, border=5)
         self.vboxTop.Add(self.menuDeleteButton, 0, border=5)
+        self.vboxTop.AddSpacer(30)
+        self.vboxTop.Add(self.menuAllButton, 0, border=5)
 
         self.shoppinglistBox = wx.ListBox(self.panel, style=wx.ALIGN_LEFT)
 
@@ -179,6 +187,7 @@ class Example(wx.Frame):
         self.menuPrintButton.Bind(wx.EVT_BUTTON, self.menuPrintEvent)
         self.menuEmailButton.Bind(wx.EVT_BUTTON, self.menuEmailEvent)
         self.menuDeleteButton.Bind(wx.EVT_BUTTON, self.menuDeleteEvent)
+        self.menuAllButton.Bind(wx.EVT_BUTTON, self.menuToggleAllEvent)
         self.menuSuggestButton.Bind(wx.EVT_BUTTON, self.suggestDish)
         self.nextIngredent.Bind(wx.EVT_BUTTON, self.nextIngredentCallback)
         self.previousIngredent.Bind(wx.EVT_BUTTON, self.previousIngredentCallback)
@@ -230,10 +239,24 @@ class Example(wx.Frame):
 
         return thisCat
 
+    def checkRecipies(self):
+        # check the recipes and ingredance match
+        for recipy in self.Recipies:
+            ingredents = recipy.split()
+            for nxingredent in ingredents:
+                ingredent = nxingredent.split("*")
+                if len(ingredent) == 2:
+                    if not ingredent[1] in self.IngredienceDict.keys():
+                        print("ingredent error " + ingredent[1])
+                        raise Exception("ingredent error: recipy = " + recipy + " " + ingredent[1])
+
+
+
     def readInData(self):
         readIn(self.Menu, self.MenuDict, self.MenuFileName)
         readIn(self.Recipies, self.RecipiesDict, self.RecipiesFileName)
         readIn(self.Ingredience, self.IngredienceDict, self.IngredianceFileName)
+        self.checkRecipies()
 
     def nextIngredentCallback(self, event):
         self.IngrediencePointer = min(self.IngrediencePointer + 1, len(self.Ingredience) - 1)
@@ -339,17 +362,18 @@ class Example(wx.Frame):
         if len(items) == 3:
             dish = items[2]
             recipyDetials = self.Recipies[self.RecipiesDict[dish]].split(" ")
-            for ingredientPnt in range(1, len(recipyDetials)):
-                ingredientDetail = recipyDetials[ingredientPnt].split("*")
-                number = int(ingredientDetail[0])
-                item = ingredientDetail[1]
+            if len(recipyDetials) > 1:
+                for ingredientPnt in range(1, len(recipyDetials)):
+                    ingredientDetail = recipyDetials[ingredientPnt].split("*")
+                    number = int(ingredientDetail[0])
+                    item = ingredientDetail[1]
 
-                # add ingredient back into stock
-                ingredientIndex = self.IngredienceDict[item]
-                ingredientDetail = self.Ingredience[ingredientIndex].split(" ")
-                number1 = int(ingredientDetail[1])
-                minstock = ingredientDetail[2]
-                self.Ingredience[ingredientIndex] = item + " " + str(number+number1) + " " + minstock
+                    # add ingredient back into stock
+                    ingredientIndex = self.IngredienceDict[item]
+                    ingredientDetail = self.Ingredience[ingredientIndex].split(" ")
+                    number1 = int(ingredientDetail[1])
+                    minstock = ingredientDetail[2]
+                    self.Ingredience[ingredientIndex] = item + " " + str(number+number1) + " " + minstock
 
         self.refreshShoppingList()
         self.mealWindow.Show()
@@ -371,8 +395,7 @@ class Example(wx.Frame):
         self.mealWindow.Show()
         self.mealWindow.SetPosition((800, 100))
 
-
-    def menuPrintEvent(self, event):
+    def menuToFile(self):
         tempfile = open(self.TempFileName, "w")
         tempfile.write("\n\n\n\n\n\n\n\n\n")
 
@@ -388,15 +411,24 @@ class Example(wx.Frame):
             #print(yesterday)
             if yesterday < thisdate:
                 tempfile.write("            " + line + "\n\n")
+                print("            " + line + "\n\n")
         tempfile.write("\n\n\n            xxxx\n\n\n" + self.getRandomCat)
 
         tempfile.close()
+
+    def menuPrintEvent(self, event):
+        self.menuToFile()
         os.system("lpr " + self.TempFileName)
 
 
     def menuDeleteEvent(self, event):
         endIndex = self.menuBox.GetCount()-1
         self.menuBox.Delete(endIndex)
+
+    def menuToggleAllEvent(self, event):
+        global AllFlag
+        AllFlag = ~AllFlag
+
 
 
     def menuEmailEvent(self, event):
@@ -418,7 +450,12 @@ class Example(wx.Frame):
 
         menuText = menuText + thisCat + "\n\n\n"
 
-        print (totalnumber)
+        print(totalnumber)
+
+        self.menuToFile()
+        tempfile = open(self.TempFileName, "r")
+        menuText += "\n\n\n\n\n\n"
+        menuText += tempfile.read()
 
         if totalnumber > 0:
             for address in emailAddresses:
@@ -433,22 +470,24 @@ class Example(wx.Frame):
         recipypnt = self.RecipiesDict[dish]
 
         recipyDetials = self.Recipies[recipypnt].split(" ")
-        for ingredientPnt in range(1, len(recipyDetials)):
-            ingredientDetail = recipyDetials[ingredientPnt].split("*")
-            number = int(ingredientDetail[0])
-            item = ingredientDetail[1]
-            ingredientAddress = self.IngredienceDict[item]
-            ingredientDetail = self.Ingredience[ingredientAddress].split(" ")
-            stock = int(ingredientDetail[1])
-            minstock = ingredientDetail[2]
-            stock = stock - number
-            self.Ingredience[ingredientAddress] = item + " " + str(stock) + " " + minstock
+        if len(recipyDetials) > 1:
+            for ingredientPnt in range(1, len(recipyDetials)):
+                ingredientDetail = recipyDetials[ingredientPnt].split("*")
+                number = int(ingredientDetail[0])
+                item = ingredientDetail[1]
+                ingredientAddress = self.IngredienceDict[item]
+                ingredientDetail = self.Ingredience[ingredientAddress].split(" ")
+                stock = int(ingredientDetail[1])
+                minstock = ingredientDetail[2]
+                stock = stock - number
+                self.Ingredience[ingredientAddress] = item + " " + str(stock) + " " + minstock
 
         self.refreshShoppingList()
 
     def refreshShoppingList(self):
         self.shoppinglistBox.Clear()
         for item in self.Ingredience:
+            print(item)
             itemSplit = item.split(" ")
             ingredient = itemSplit[0]
             number = int(itemSplit[1])
@@ -535,7 +574,13 @@ class chooseMealWindow(wx.Frame):
         mywin.recordMenuSelect()
 
     def nextDish(self, event):
+        global AllFlag
         self.index = self.index + 1
+
+        if ~AllFlag:
+            while '#' in mywin.Recipies[self.index].split(" ")[0]:
+                self.index = self.index + 1
+
         self.recipieBox.ChangeValue(mywin.Recipies[self.index].split(" ")[0])
         if self.index >= 1:
             self.buttonPREVIOUS.Show()
@@ -545,6 +590,11 @@ class chooseMealWindow(wx.Frame):
 
     def previousDish(self, event):
         self.index = self.index - 1
+
+        if ~AllFlag:
+            while '#' in mywin.Recipies[self.index].split(" ")[0]:
+                self.index = self.index - 1
+
         self.recipieBox.ChangeValue(mywin.Recipies[self.index].split(" ")[0])
         if self.index < 1:
             self.buttonPREVIOUS.Hide()
